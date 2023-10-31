@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*-----------------------------------------------------------------TOPO DO SITE*/
+/*TODO O TOPO DO SITE*/
+#topo{
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr;
+    border-bottom: 1px solid #000;
+    padding: 1px;
+    height: 70px;
+}
+/*DIV PARA A IMAGEM DA LOGO*/
+#logo{
+
+}
+/*IMAGEM PARA SAIR DO SITE*/
+#imgSair{
+    width: 50px;
+    cursor: pointer;
+}
+/*NOME DO SITE*/
+#topo h1{
+    display: flex;
+    justify-content: center;
+}
+/*DIV COM O BUTTON DE SAIR*/
+#divSair{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+/*----------------------------------------------------------------MEIO DO SITE*/
+/*TODO O MEIO DO SITE*/
+#meio{
+
+}
+/*DIV COM O FILTRO DE PESQUISA, VALOR TOTAL RECEBIDO E BUTTON PARA NOVO PAGAMENTO*/
+#divOpcoes{
+    display: flex;
+    gap: 30px;
+    padding: 5px;
+    background-color: red;
+    justify-content: center;
+}
+/*DIV CONTENDO O VALOR TOTAL RECEBIDO*/
+#divValorTotal{
+    display: flex;
+}
+/*DIV CONTENDO BUTTON PARA NOVO PAGAMENTO*/
+#divOpcoes button{
+    cursor: pointer;
+    width: 150px;
+}
+/*DIV CONTENDO OS BUTTONS DE APAGAR E EDITAR UM PAGAMENTO*/
+.opcoes{
+    display: flex;
+}
+.pagamento{
+    background-color: blueviolet;
+    
+}
+
+#tablePagamentos{
+    background-color: rgb(17, 0, 255);
+    width: 100%;
+}
+#listaPagamentos tr td{
+    border: 1px solid #000;
+    text-align: center;
+    justify-content: center;
+}
+/*----------------------------------------------------------------RODAPE DO SITE*/
+/*TODO O RODAPÉ DO SITE*/
+#rodape{
+
+}
