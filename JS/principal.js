@@ -42,6 +42,7 @@ function filtro(){
 //AÇÃO PARA ABRIR O POP-UP E ADICIONAR NOVO PAGAMENTO
 document.querySelector("#BTNAddPag").addEventListener("click", ()=>{
 
+	document.querySelector("#DivTitulo h1").innerHTML = "Registrar pagamento";
 	document.querySelector("#DialogOperacoes").style.display = "flex";
 	document.querySelector("#DialogOperacoes").show();
 });
