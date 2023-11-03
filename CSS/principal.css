@@ -6,6 +6,25 @@
 body{
     font-family: 'Geologica', 'AR One Sans', sans-serif;
 }
+body::-webkit-scrollbar{
+  background-color: #a1a1a1;
+  border: 1px solid #000;
+  width: 6px;  
+}
+body::-webkit-scrollbar-thumb{
+  background-color: #787878;
+  border: 1px solid #000;
+}
+/*SCROLL*/
+#divEnvolveLista::-webkit-scrollbar{
+  background-color: #a1a1a1;
+  border: 1px solid #000;
+  width: 6px;  	
+}
+#divEnvolveLista::-webkit-scrollbar-thumb{
+  background-color: #787878;
+  border: 1px solid #000;
+}
 /*-----------------------------------------------------------------TOPO DO SITE*/
 /*TODO O TOPO DO SITE*/
 #topo{
@@ -135,13 +154,22 @@ padding: 5px;
 }
 /*TABELA COM OS PAGAMENTOS REGISTRADOS*/
 #tablePagamentos{
-    border: 1px solid #000;
     width: 100%;
+    position: relative;
 }
 /*GUIA PARA LOCALIZAÇÃO DE INFORMAÇÕES ("CLIENTE", "VENCIMENTO", ETC)*/
 #tablePagamentos th{
     background-color: #a1a1a1;
 }
+
+/*LISTA ONDE FICA OS PAGAMENTOS DOS CLIENTES*/
+div#divEnvolveLista{
+	border: 1px solid #000;
+	max-height: 500px;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
 /*CADA PAGAMENTO INDIVIDUAL*/
 #listaPagamentos tr td{
     border: 1px solid #000;
@@ -233,5 +261,10 @@ padding: 5px;
 /*----------------------------------------------------------------RODAPE DO SITE*/
 /*TODO O RODAPÉ DO SITE*/
 #rodape{
-
+	display: grid;
+	height: 50px;
+	width: 100%;
+	background-color: #a1a1a1;
+	text-align: center;
+	align-items: end;
 }
