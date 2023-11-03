@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-arquiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>P.R - Principal</title>
+	<title>P.L - Principal</title>
 	<link rel="stylesheet" href="../CSS/principal.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,13 +20,284 @@
 		</div>
 		
 		<div id='meio'>
+
+			<!--DIV COM O VALOR TOTAL RECEBIDO, O FILTRO E O BUTTON PARA ADICIONAR PAGAMENTO-->
+			<div id='divOpcoes'>
+				<div id='divValorTotal'>
+					<p>Valor total: R$</p>
+					<!--VAI RECEBER O VALOR TOTAL QUE FOI RECOLHIDO-->
+					<p id="valorRecebido"></p>
+				</div>
+				<div id="divFiltro">
+					<input type="text" id="filtroDePagamentos" onkeyup="filtro()" placeholder="Digite para filtrar">
+				</div>
+				<div id="divBtnAddPag">
+					<button id="BTNAddPag"><img src="../imagens/ImgAddPag.png" id="AddPag" alt=""></button>
+				</div>
+
+			</div>
+			
+			<div id="divEnvolveLista">
+			
+				<!--DIV COM A LISTA DE PAGAMENTOS RECEBIDOS-->
+				<table id="tablePagamentos">
+				<theade id="guias">
+					<th>Cliente</th>
+					<th>Vencimento</th>
+					<th>Pagamento</th>
+					<th>Valor</th>
+					<th>Forma</th>
+					<th>Funcionário</th>
+					<th id="opcoes">Opções</th>
+				</theade>
+				
+				<tbody id="listaPagamentos">
+				
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr><tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+					
+					<tr class='pagamento'>
+						<td>Jobson Oliveira Coutinho Linst</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Crédito 3X</td>
+						<td>Jobson de Oliveira</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+
+				</tbody>
+				
+			</table>
+			
+			</div>
+			
 			<!--PUP-UP PARA ADICIONAR AS AÇÕES (adicionar pagamento e editar pagamento)-->
 			<dialog id="DialogOperacoes">
 
 				<div id="formulario">
 					<form action="../PHP/salvarPag.php" method="POST">
 						<div id="DivTitulo">
-							<h1>Registrar pagamento</h1>
+							<h1></h1>
 							<img src="../imagens/ImgBtnFechar.png" id="btnFechar" onclick="FecharPopUp()" alt="Imagem de button para fechar aba de registro de pagamento">
 						</div>
 						<div id="DivInputs">
@@ -51,55 +322,12 @@
 				</div>
 
 			</dialog>
-
-			<!--DIV COM O VALOR TOTAL RECEBIDO, O FILTRO E O BUTTON PARA ADICIONAR PAGAMENTO-->
-			<div id='divOpcoes'>
-				<div id='divValorTotal'>
-					<p>Valor total: R$</p>
-					<!--VAI RECEBER O VALOR TOTAL QUE FOI RECOLHIDO-->
-					<p id="valorRecebido"></p>
-				</div>
-				<div id="divFiltro">
-					<input type="text" id="filtroDePagamentos" onkeyup="filtro()" placeholder="Digite para filtrar">
-				</div>
-				<div id="divBtnAddPag">
-					<button id="BTNAddPag"><img src="../imagens/ImgAddPag.png" id="AddPag" alt=""></button>
-				</div>
-
-			</div>
-			
-			<!--DIV COM A LISTA DE PAGAMENTOS RECEBIDOS-->
-			<table id="tablePagamentos">
-				<theade id="guias">
-					<th>Cliente</th>
-					<th>Vencimento</th>
-					<th>Pagamento</th>
-					<th>Valor</th>
-					<th>Forma</th>
-					<th>Funcionário</th>
-					<th id="opcoes">Opções</th>
-				</theade>
-				<tbody id="listaPagamentos">
-
-					<tr class='pagamento'>
-						<td>Jobson Oliveira</td>
-						<td>05/11/2023</td>
-						<td>10/12/2023</td>
-						<td class='valorPago'>55</td>
-						<td>Pix</td>
-						<td>Qualquer</td>
-						<td class='opcoes'>
-							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
-							<img src="../imagens/lixeira.png" alt="">
-						</td>
-					</tr>
-
-				</tbody>
-			</table>
+		
 		</div>
 		
 		<div id='rodape'>
-		
+			<p>Desenvolvido por <a href='https://portifolio-jobson.netlify.app/' target='_black'>Jobson de Oliveira Coutinho.</a></p>
+			<p>"O homem faz os planos mas a resposta vem de Deus" | Payment List | &copy; - 2023 - Todos os direitos reservaodos</p>
 		</div>
 		<script src="../JS/principal.js"></script>
 	</body>
