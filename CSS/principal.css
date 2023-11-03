@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    font-family: 'Geologica', 'AR One Sans', sans-serif;
+}
 /*-----------------------------------------------------------------TOPO DO SITE*/
 /*TODO O TOPO DO SITE*/
 #topo{
@@ -10,11 +13,17 @@
     grid-template-columns: 1fr 7fr 1fr;
     border-bottom: 1px solid #000;
     padding: 1px;
-    height: 70px;
+    background-color: #A1A1A1;
 }
 /*DIV PARA A IMAGEM DA LOGO*/
 #logo{
-
+display: flex;
+justify-content: center;
+width: 100px;
+padding: 5px;
+}
+#logo img{
+    width: 80px;
 }
 /*IMAGEM PARA SAIR DO SITE*/
 #imgSair{
@@ -25,6 +34,7 @@
 #topo h1{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 /*DIV COM O BUTTON DE SAIR*/
 #divSair{
@@ -40,39 +50,186 @@
 }
 /*DIV COM O FILTRO DE PESQUISA, VALOR TOTAL RECEBIDO E BUTTON PARA NOVO PAGAMENTO*/
 #divOpcoes{
-    display: flex;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: 5px;
-    background-color: red;
     justify-content: center;
+    align-items: center;
+    height: 50px;
 }
 /*DIV CONTENDO O VALOR TOTAL RECEBIDO*/
 #divValorTotal{
     display: flex;
+    justify-content: left;
+}
+/*DIV COM O FILTRO DE PESQUISA*/
+#divFiltro{
+    display: flex;
+    justify-content: center;
+}
+/*DIV COM O BUTTON DE ADICIONAR NOVO PAGAMENTO*/
+#divBtnAddPag{
+    display: flex;
+    justify-content: end;
 }
 /*DIV CONTENDO BUTTON PARA NOVO PAGAMENTO*/
 #divOpcoes button{
+    display: flex;
     cursor: pointer;
-    width: 150px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    background-color: #a1a1a1;
+    align-items: center;
+    justify-content: center;
 }
+/*ANIMAÇÃO DO BUTTON*/
+#divOpcoes button:hover{
+    animation: 1.5s animButton infinite linear;
+}
+@keyframes animButton{
+    from{
+        background-color: #a1a1a1;
+    }
+    50%{
+        background-color: #272727;
+    }
+    to{
+        background-color: #a1a1a1;
+    }
+}
+/*IMAGEM DO BUTTON DE ADICIONAR NOVO PAGAMENTO*/
+#AddPag{
+    width: 60px;
+}
+
+/*INPUT DE FILTRO DE PESQUISA*/
+#divOpcoes input{
+    background: transparent;
+    width: 300px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    font-size: 18px;
+}
+
 /*DIV CONTENDO OS BUTTONS DE APAGAR E EDITAR UM PAGAMENTO*/
 .opcoes{
     display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1px;
 }
-.pagamento{
-    background-color: blueviolet;
-    
+/*IMAGENS DE EDITAR E APAGAR PAGAMENTO*/
+.opcoes img{
+    width: 25px;
+    height: 30px;
+    cursor: pointer;
 }
-
+/*IMAGEM DO BUTTON DE EDITAR PAGAMENTO*/
+#BTNeditar{
+    height: 30px;
+    width: 30px;
+}
+/*TABELA COM OS PAGAMENTOS REGISTRADOS*/
 #tablePagamentos{
-    background-color: rgb(17, 0, 255);
+    border: 1px solid #000;
     width: 100%;
 }
+/*GUIA PARA LOCALIZAÇÃO DE INFORMAÇÕES ("CLIENTE", "VENCIMENTO", ETC)*/
+#tablePagamentos th{
+    background-color: #a1a1a1;
+}
+/*CADA PAGAMENTO INDIVIDUAL*/
 #listaPagamentos tr td{
     border: 1px solid #000;
     text-align: center;
     justify-content: center;
 }
+/*DIALOG PARA MOSTRAR AS OPERAÇÕES QUE SERÃO REALIZADAS*/
+#DialogOperacoes{
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, .4);
+    justify-content: center;
+    align-items: center;
+}
+/*DIV FORMULÁRIO PARA ADICIONAR PAGAMENTO*/
+#formulario{
+    position: relative;
+    display: grid;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #a1a1a1;
+}
+/*IMAGEM DO BUTTON PARA FECHAR O FORMULÁRIO*/
+#btnFechar{
+    position: absolute;
+    background-color: #a1a1a1;
+    border-radius: 100%;
+    top: -3%;
+    left: 93%;
+    transform: translate(-50% -50%);
+    width: 35px;
+    cursor: pointer;
+}
+/*DIV COM O TITULO DO POP-UP DE ADICIONAR PAGAMENTO*/
+#DivTitulo{
+    padding: 15px;
+
+}
+/*DIV COM OS INPUTS PARA ADICIONAR PAGAMENTO*/
+#DivInputs{
+    display: grid;
+    gap: 10px;
+    padding: 5px;
+}
+/*PLACEHOLDER DOS INPUTS DO FORMULÁRO*/
+#DivInputs input::placeholder{
+    color: #000;
+}
+/*INPUTS DO FORMULÁRIO PARA DICIONAR PAGAMENTO*/
+#DivInputs input, select{
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    font-size: 18px;
+    height: 35px;
+}
+
+/*DIV COM O BUTTON DE ADICIONAR PAGAMENTO*/
+#DivBtnSalvar{
+    padding: 5px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+/*BUTTON DE ADICIONAR PAGAMENTO*/
+#DivBtnSalvar button{
+    display: flex;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    background-color: #a1a1a1;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+}
+/*ANIMAÇÃO DO BUTTON*/
+#DivBtnSalvar button:hover{
+    animation: 1.5s animButton infinite linear;
+}
+
 /*----------------------------------------------------------------RODAPE DO SITE*/
 /*TODO O RODAPÉ DO SITE*/
 #rodape{

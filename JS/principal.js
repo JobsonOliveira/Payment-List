@@ -1,41 +1,11 @@
-document.querySelector("#listaPagamentos").innerHTML = `
-	<tr class='pagamento' id='teste'>
-		<td>Jobson</td>
-		<td>15/12/2023</td>
-		<td>10/12/2023</td>
-		<td class='valorPago'>55</td>
-		<td>Pix</td>
-		<td>Qualquer</td>
-		<td class='opcoes'>
-			<button>ed</button>
-			<button>ex</button>
-		</td>
-	</tr>
-
-    <tr class='pagamento'>
-		<td>Maria</td>
-		<td>15/12/2023</td>
-		<td>10/12/2023</td>
-		<td class='valorPago'>100</td>
-		<td>Pix</td>
-		<td>Qualquer</td>
-		<td class='opcoes'>
-			<button>ed</button>
-			<button>ex</button>
-		</td>
-	</tr>
-`;
 		
 //MOSTRAR O VALOR TOTAL RECEBIDO
 let valorRecebido = document.getElementsByClassName("valorPago");
 let valorTotal = 0;
-		
 for(let i = 0; i < valorRecebido.length; i++){
 	valorTotal += parseInt(valorRecebido[i].innerHTML);
 }
 document.querySelector("#valorRecebido").innerHTML = valorTotal;
-		
-		
 		
 //FILTRAR OS DADOS PESQUISADOS E ATUALIZAR O VALOR TOTAL RECEBIDO
 function filtro(){
@@ -67,4 +37,50 @@ function filtro(){
 		}
 	}
 	document.querySelector("#valorRecebido").innerHTML = valorTotal;
+}
+
+//AÇÃO PARA ABRIR O POP-UP E ADICIONAR NOVO PAGAMENTO
+document.querySelector("#BTNAddPag").addEventListener("click", ()=>{
+
+	document.querySelector("#DialogOperacoes").style.display = "flex";
+	document.querySelector("#DialogOperacoes").show();
+});
+
+//FECHAR O POP-UP
+function FecharPopUp(){
+
+	document.querySelector("#DialogOperacoes").close();
+	document.querySelector("#DialogOperacoes").style.display = "none";
+};
+
+//AÇÃO PARA ABRIR O POP-UP E EDITAR PAGAMENTO
+function editar(nome, vencimento){
+	document.querySelector("#DivTitulo h1").innerHTML = "Editar pagamento";
+
+	listarSituacao();
+	async function listarSituacao(){
+    	const dados = await fetch('../PHP/coletor.php');
+    	const retorno =  await dados.json();
+
+    	//MOSTRAR A MENSÁGEM QUANDO O DADO FOR ENCONTRADO
+    	if(retorno['status']){
+    	    for (let i = 0; i < retorno.dados.length; i++) {
+
+				if((retorno.dados[i]['cliente'] == nome) && (retorno.dados[i]['vencimento_form'] == vencimento)){
+
+					document.querySelector("#nomeCliente").value = retorno.dados[i]['cliente'];
+					document.querySelector("#vencimBoleto").value = retorno.dados[i]['vencimento'];
+					document.querySelector("#pagameBoleto").value = retorno.dados[i]['pagamento'];
+					document.querySelector("#valorPago").value = retorno.dados[i]['valor'];
+					document.querySelector("#forma").value = retorno.dados[i]['forma'];
+					document.querySelector("#funcionario").value = retorno.dados[i]['funcionario'];
+				}
+    	    }
+    	}else{
+			alert("Consulta falhou!");
+		}
+}
+
+	document.querySelector("#DialogOperacoes").style.display = "flex";
+	document.querySelector("#DialogOperacoes").show();
 }

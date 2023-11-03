@@ -4,42 +4,96 @@
 	<meta charset="UTF-8">
 	<meta http-arquiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>nome do projeto</title>
+	<title>P.R - Principal</title>
 	<link rel="stylesheet" href="../CSS/principal.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Geologica&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="../imagens/logoIco.ico" type="image/x-icon">
 </head>
 <header>
 	<body>
 		<div id='topo'>
-			<div id='logo'> <img src='' alt='logo'> </div>
-			<h1>Nome do projeto</h1>
-			<div id='divSair'> <img src='https://static.vecteezy.com/ti/vetor-gratis/p1/14767684-sair-ou-sair-icone-em-estilo-simples-isolado-no-fundo-branco-ilustracaoial-eps-10-vetor.jpg' alt='sair' id='imgSair'> </div>
+			<div id='logo'> <img src='../imagens/logo.png' alt='logo'> </div>
+			<h1>Payment List</h1>
+			<div id='divSair'> <img src='../imagens/ImgBtnSair.png' alt='sair' id='imgSair'> </div>
 		</div>
 		
 		<div id='meio'>
+			<!--PUP-UP PARA ADICIONAR AS AÇÕES (adicionar pagamento e editar pagamento)-->
+			<dialog id="DialogOperacoes">
+
+				<div id="formulario">
+					<form action="../PHP/salvarPag.php" method="POST">
+						<div id="DivTitulo">
+							<h1>Registrar pagamento</h1>
+							<img src="../imagens/ImgBtnFechar.png" id="btnFechar" onclick="FecharPopUp()" alt="Imagem de button para fechar aba de registro de pagamento">
+						</div>
+						<div id="DivInputs">
+							<input type="text" id="nomeCliente" name="nomeCliente" placeholder="Cliente">
+							<input type="date" id="vencimBoleto" name="vencimBoleto" placeholder="Vencimento">
+							<input type="date" id="pagameBoleto" name="pagameBoleto" placeholder="Pagamento">
+							<input type="number" id="valorPago" name="valorPago" placeholder="Valor">
+							<select name="forma" id="forma">
+								<option value="Pix">Pix</option>
+								<option value="Espécie">Espécie</option>
+								<option value="Débito">Débito</option>
+								<option value="Crédito 1X">Crédito 1X</option>
+								<option value="Crédito 2X">Crédito 2X</option>
+								<option value="Crédito 3X">Crédito 3X</option>
+							</select>
+							<input type="text" id="funcionario" name="funcionario" placeholder="Funcionário que recolheu">
+						</div>
+						<div id="DivBtnSalvar">
+							<button type="submit" name="salvarPag">Salvar</button>
+						</div>
+					</form>
+				</div>
+
+			</dialog>
+
 			<!--DIV COM O VALOR TOTAL RECEBIDO, O FILTRO E O BUTTON PARA ADICIONAR PAGAMENTO-->
 			<div id='divOpcoes'>
 				<div id='divValorTotal'>
-					<p>Valor recebido: R$</p>
+					<p>Valor total: R$</p>
 					<!--VAI RECEBER O VALOR TOTAL QUE FOI RECOLHIDO-->
 					<p id="valorRecebido"></p>
 				</div>
-				<input type="text" id="filtroDePagamentos" onkeyup="filtro()" placeholder="Digite aqui">
-				<button>Novo pagamento</button>
+				<div id="divFiltro">
+					<input type="text" id="filtroDePagamentos" onkeyup="filtro()" placeholder="Digite para filtrar">
+				</div>
+				<div id="divBtnAddPag">
+					<button id="BTNAddPag"><img src="../imagens/ImgAddPag.png" id="AddPag" alt=""></button>
+				</div>
+
 			</div>
 			
 			<!--DIV COM A LISTA DE PAGAMENTOS RECEBIDOS-->
 			<table id="tablePagamentos">
-				<theade>
-					<th>Cliente:</th>
-					<th>Vencimento:</th>
-					<th>Pagamento:</th>
-					<th>Valor:</th>
-					<th>Forma:</th>
+				<theade id="guias">
+					<th>Cliente</th>
+					<th>Vencimento</th>
+					<th>Pagamento</th>
+					<th>Valor</th>
+					<th>Forma</th>
 					<th>Funcionário</th>
-					<th id="opcoes">Opções:</th>
+					<th id="opcoes">Opções</th>
 				</theade>
 				<tbody id="listaPagamentos">
-					
+
+					<tr class='pagamento'>
+						<td>Jobson Oliveira</td>
+						<td>05/11/2023</td>
+						<td>10/12/2023</td>
+						<td class='valorPago'>55</td>
+						<td>Pix</td>
+						<td>Qualquer</td>
+						<td class='opcoes'>
+							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
+							<img src="../imagens/lixeira.png" alt="">
+						</td>
+					</tr>
+
 				</tbody>
 			</table>
 		</div>
