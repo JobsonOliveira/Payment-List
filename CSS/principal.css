@@ -65,7 +65,7 @@ padding: 5px;
 /*----------------------------------------------------------------MEIO DO SITE*/
 /*TODO O MEIO DO SITE*/
 #meio{
-
+	min-height: 550px;
 }
 /*DIV COM O FILTRO DE PESQUISA, VALOR TOTAL RECEBIDO E BUTTON PARA NOVO PAGAMENTO*/
 #divOpcoes{
@@ -105,7 +105,7 @@ padding: 5px;
 }
 /*ANIMAÇÃO DO BUTTON*/
 #divOpcoes button:hover{
-    animation: 1.5s animButton infinite linear;
+    animation: 1s animButton infinite linear;
 }
 @keyframes animButton{
     from{
@@ -183,7 +183,7 @@ div#divEnvolveLista{
     top: 0px;
     border: none;
     outline: none;
-    background-color: rgba(255, 255, 255, .4);
+    background-color: rgba(255, 255, 255, .6);
     justify-content: center;
     align-items: center;
 }
@@ -194,12 +194,12 @@ div#divEnvolveLista{
     padding: 5px;
     border: 1px solid #000;
     border-radius: 5px;
-    background-color: #a1a1a1;
+    background-color: #fff;
 }
 /*IMAGEM DO BUTTON PARA FECHAR O FORMULÁRIO*/
 #btnFechar{
     position: absolute;
-    background-color: #a1a1a1;
+    background-color: #fff;
     border-radius: 100%;
     top: -3%;
     left: 93%;
@@ -220,7 +220,7 @@ div#divEnvolveLista{
 }
 /*PLACEHOLDER DOS INPUTS DO FORMULÁRO*/
 #DivInputs input::placeholder{
-    color: #000;
+    color: #a1a1a1;
 }
 /*INPUTS DO FORMULÁRIO PARA DICIONAR PAGAMENTO*/
 #DivInputs input, select{
@@ -255,7 +255,7 @@ div#divEnvolveLista{
 }
 /*ANIMAÇÃO DO BUTTON*/
 #DivBtnSalvar button:hover{
-    animation: 1.5s animButton infinite linear;
+    animation: 1s animButton infinite linear;
 }
 
 /*----------------------------------------------------------------RODAPE DO SITE*/
@@ -267,4 +267,7 @@ div#divEnvolveLista{
 	background-color: #a1a1a1;
 	text-align: center;
 	align-items: end;
+}
+#rodape a{
+	text-decoration: none;
 }
