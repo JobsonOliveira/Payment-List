@@ -56,8 +56,6 @@ function FecharPopUp(){
 
 //AÇÃO PARA ABRIR O POP-UP E EDITAR PAGAMENTO
 function editar(nome, vencimento){
-	document.querySelector("#DivTitulo h1").innerHTML = "Editar pagamento";
-
 	listarSituacao();
 	async function listarSituacao(){
     	const dados = await fetch('../PHP/coletor.php');
@@ -68,13 +66,35 @@ function editar(nome, vencimento){
     	    for (let i = 0; i < retorno.dados.length; i++) {
 
 				if((retorno.dados[i]['cliente'] == nome) && (retorno.dados[i]['vencimento_form'] == vencimento)){
-
-					document.querySelector("#nomeCliente").value = retorno.dados[i]['cliente'];
-					document.querySelector("#vencimBoleto").value = retorno.dados[i]['vencimento'];
-					document.querySelector("#pagameBoleto").value = retorno.dados[i]['pagamento'];
-					document.querySelector("#valorPago").value = retorno.dados[i]['valor'];
-					document.querySelector("#forma").value = retorno.dados[i]['forma'];
-					document.querySelector("#funcionario").value = retorno.dados[i]['funcionario'];
+					
+					document.querySelector("#DialogOperacoes").innerHTML = `
+						<div id="formulario">
+							<form action="../PHP/editarPag.php" method="POST">
+								<div id="DivTitulo">
+									<h1>Editar pagamento</h1>
+								<img src="../imagens/ImgBtnFechar.png" id="btnFechar" onclick="FecharPopUp()" alt="Imagem de button para fechar aba de registro de pagamento">
+								</div>
+								<div id="DivInputs">
+									<input type="text" id="nomeCliente" name="nomeCliente" placeholder="Cliente" value='${retorno.dados[i]['cliente']}'>
+									<input type="date" id="vencimBoleto" name="vencimBoleto" placeholder="Vencimento" value='${retorno.dados[i]['vencimento']}'>
+									<input type="date" id="pagameBoleto" name="pagameBoleto" placeholder="Pagamento" value='${retorno.dados[i]['pagamento']}'>
+									<input type="number" id="valorPago" name="valorPago" placeholder="Valor" value='${retorno.dados[i]['valor']}'>
+									<select name="forma" id="forma" value='Débito'>
+										<option value="Pix">Pix</option>
+										<option value="Espécie">Espécie</option>
+										<option value="Débito">Débito</option>
+										<option value="Crédito 1X">Crédito 1X</option>
+										<option value="Crédito 2X">Crédito 2X</option>
+										<option value="Crédito 3X">Crédito 3X</option>
+									</select>
+									<input type="text" id="funcionario" name="funcionario" placeholder="Funcionário que recolheu" value='${retorno.dados[i]['funcionario']}'>
+								</div>
+								<div id="DivBtnSalvar">
+									<button type="submit" name="EditarPag">Editar</button>
+								</div>
+							</form>
+						</div>
+					`;
 				}
     	    }
     	}else{
@@ -85,3 +105,11 @@ function editar(nome, vencimento){
 	document.querySelector("#DialogOperacoes").style.display = "flex";
 	document.querySelector("#DialogOperacoes").show();
 }
+
+//MUDAR OS INPUTS PARA DATE
+document.querySelector("#vencimBoleto").addEventListener("click", () =>{
+	document.querySelector("#vencimBoleto").type = "date";
+});
+document.querySelector("#pagameBoleto").addEventListener("click", () =>{
+	document.querySelector("#pagameBoleto").type = "date";
+});
