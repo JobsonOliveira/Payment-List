@@ -52,6 +52,9 @@ function FecharPopUp(){
 
 	document.querySelector("#DialogOperacoes").close();
 	document.querySelector("#DialogOperacoes").style.display = "none";
+	//MUDA OS INPUTS NOVAMENTE PARA TEXT
+	document.querySelector("#vencimBoleto").type = "text";
+	document.querySelector("#pagameBoleto").type = "text";
 };
 
 //AÇÃO PARA ABRIR O POP-UP E EDITAR PAGAMENTO

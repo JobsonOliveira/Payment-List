@@ -44,11 +44,6 @@ padding: 5px;
 #logo img{
     width: 80px;
 }
-/*IMAGEM PARA SAIR DO SITE*/
-#imgSair{
-    width: 50px;
-    cursor: pointer;
-}
 /*NOME DO SITE*/
 #topo h1{
     display: flex;
@@ -60,6 +55,12 @@ padding: 5px;
     display: flex;
     align-items: center;
     justify-content: right;
+    padding: 5px;
+}
+/*IMAGEM PARA SAIR DO SITE*/
+#imgSair{
+    width: 30px;
+    cursor: pointer;
 }
 
 /*----------------------------------------------------------------MEIO DO SITE*/
