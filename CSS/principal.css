@@ -149,7 +149,7 @@ padding: 5px;
     cursor: pointer;
 }
 /*IMAGEM DO BUTTON DE EDITAR PAGAMENTO*/
-#BTNeditar{
+.BTNeditar{
     height: 30px;
     width: 30px;
 }
@@ -258,6 +258,50 @@ div#divEnvolveLista{
 #DivBtnSalvar button:hover{
     animation: 1s animButton infinite linear;
 }
+/*DIALOG COM O POP-UP PARA CONFIMAÇÃO PAR APAGAR PAGAMENTO*/
+#dialogConfirm{
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .6);
+    border: none;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+}
+/*POP-UP DE CONFIRMAÇÃO PARA APAGAR PAGAMENTO*/
+#divConfirm{
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    display: grid;
+
+}
+/*DIV COM OS BUTTONS DE CONFIRMAÇÃO E DE FECHAMENTO*/
+#buttonsConfirm{
+    display: flex;
+    gap: 3px;
+}
+/*BUTTONS DE CONFIRMAÇÃO DE PARA FECHAR POP-UP*/
+#divConfirm button{
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    background-color: #a1a1a1;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    outline: none;
+}
+/*ANIMAÇÃO DOS BUTTONS*/
+#divConfirm button:hover{
+    animation: 1s animButton infinite linear;
+}
+
 
 /*----------------------------------------------------------------RODAPE DO SITE*/
 /*TODO O RODAPÉ DO SITE*/

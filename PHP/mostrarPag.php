@@ -2,7 +2,7 @@
 include('conexao.php');
 
 //QUERY PARA CONSULTA
-$consulta = "SELECT id, cliente, DATE_FORMAT(vencimento, '%d/%m/%Y') AS vencimento_form, vencimento, DATE_FORMAT(pagamento, '%d/%m/%Y') AS pagamento_form, pagamento, valor, forma, funcionario FROM pagamentos";
+$consulta = "SELECT id, cliente, DATE_FORMAT(vencimento, '%d/%m/%Y') AS vencimento_form, vencimento, DATE_FORMAT(pagamento, '%d/%m/%Y') AS pagamento_form, pagamento, valor, forma, funcionario FROM pagamentos ORDER BY pagamento DESC";
 
 $resultado = $conn->query($consulta);
 

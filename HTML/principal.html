@@ -53,18 +53,7 @@
 				
 				<tbody id="listaPagamentos">
 				
-					<tr class='pagamento'>
-						<td>Jobson Oliveira Coutinho Linst</td>
-						<td>05/11/2023</td>
-						<td>10/12/2023</td>
-						<td class='valorPago'>55</td>
-						<td>Crédito 3X</td>
-						<td>Jobson de Oliveira</td>
-						<td class='opcoes'>
-							<img id="BTNeditar" onclick="editar('Jobson Oliveira', '05/11/2023')" src="../imagens/editar.png" alt="">
-							<img src="../imagens/lixeira.png" alt="">
-						</td>
-					</tr>
+					
 				</tbody>
 				
 			</table>
@@ -101,6 +90,20 @@
 					</form>
 				</div>
 
+			</dialog>
+
+			<!--DIALOG PARA APAGAR PAGAMENTO-->
+			<dialog id="dialogConfirm">
+				<div id="divConfirm">
+					<form action="../PHP/apagarPag.php" method="POST">
+						<p>Realmente deseja apagar este pagamento?</p>
+						<input type="hidden" name="idPag" id="idPag">
+						<div id="buttonsConfirm">
+							<button type="submit" name="apagar">Apagar</button>
+							<button type="button" id="fechar">Não apagar</button>
+						</div>
+					</form>
+				</div>
 			</dialog>
 		
 		</div>

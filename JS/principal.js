@@ -1,4 +1,38 @@
-		
+//MOSTRAR OS PAGAMENTOS REALIZADOS
+atualizar();
+async function atualizar(){
+	const dados = await fetch('../PHP/mostrarPag.php');
+	const retorno =  await dados.json();
+
+	//MOSTRAR A MENSÁGEM QUANDO O DADO FOR ENCONTRADO
+	if(retorno['status']){
+	    for (let i = 0; i < retorno.dados.length; i++) {
+            
+        	document.querySelector("#listaPagamentos").innerHTML += `
+				<tr class="pagamento">
+					<td>${retorno.dados[i]["cliente"]}</td>
+					<td>${retorno.dados[i]["vencimento_form"]}</td>
+					<td>${retorno.dados[i]["pagamento_form"]}</td>
+					<td class="valorPago">${retorno.dados[i]["valor"]}</td>
+					<td>${retorno.dados[i]["forma"]}</td>
+					<td>${retorno.dados[i]["funcionario"]}</td>
+					<td class="opcoes">
+						<img class="BTNeditar" onclick="editar('${retorno.dados[i]['cliente']}', '${retorno.dados[i]['vencimento_form']}')" src='../imagens/editar.png' alt="">
+						<img src='../imagens/lixeira.png' alt="foto de lixeira para apagar pagamento" onclick="apagar('${retorno.dados[i]['id']}')">
+					</td>
+				</tr>
+			`;
+    	}
+		//MOSTRAR O VALOR TOTAL RECEBIDO
+		let valorRecebido = document.getElementsByClassName("valorPago");
+		let valorTotal = 0;
+		for(let i = 0; i < valorRecebido.length; i++){
+			valorTotal += parseInt(valorRecebido[i].innerHTML);
+		}
+		document.querySelector("#valorRecebido").innerHTML = valorTotal;
+	}
+}
+
 //MOSTRAR O VALOR TOTAL RECEBIDO
 let valorRecebido = document.getElementsByClassName("valorPago");
 let valorTotal = 0;
@@ -45,6 +79,24 @@ document.querySelector("#BTNAddPag").addEventListener("click", ()=>{
 	document.querySelector("#DivTitulo h1").innerHTML = "Registrar pagamento";
 	document.querySelector("#DialogOperacoes").style.display = "flex";
 	document.querySelector("#DialogOperacoes").show();
+
+	//ZERARO SO VALORES DO POP-UP
+	document.querySelector("#nomeCliente").value = "";
+	document.querySelector("#vencimBoleto").value = "";
+	document.querySelector("#pagameBoleto").value = "";
+	document.querySelector("#valorPago").value = "";
+	document.querySelector("#forma").value = "Pix";
+	document.querySelector("#funcionario").value = "";
+
+	//MUDAR OS INPUTS PARA DATE
+	document.querySelector("#vencimBoleto").addEventListener("click", () =>{
+		document.querySelector("#vencimBoleto").type = "date";
+
+	});
+	document.querySelector("#pagameBoleto").addEventListener("click", () =>{
+		document.querySelector("#pagameBoleto").type = "date";
+
+	});
 });
 
 //FECHAR O POP-UP
@@ -52,9 +104,11 @@ function FecharPopUp(){
 
 	document.querySelector("#DialogOperacoes").close();
 	document.querySelector("#DialogOperacoes").style.display = "none";
+
 	//MUDA OS INPUTS NOVAMENTE PARA TEXT
 	document.querySelector("#vencimBoleto").type = "text";
 	document.querySelector("#pagameBoleto").type = "text";
+
 };
 
 //AÇÃO PARA ABRIR O POP-UP E EDITAR PAGAMENTO
@@ -78,6 +132,7 @@ function editar(nome, vencimento){
 								<img src="../imagens/ImgBtnFechar.png" id="btnFechar" onclick="FecharPopUp()" alt="Imagem de button para fechar aba de registro de pagamento">
 								</div>
 								<div id="DivInputs">
+									<input type="hidden" name="idPag" value='${retorno.dados[i]['id']}'>
 									<input type="text" id="nomeCliente" name="nomeCliente" placeholder="Cliente" value='${retorno.dados[i]['cliente']}'>
 									<input type="date" id="vencimBoleto" name="vencimBoleto" placeholder="Vencimento" value='${retorno.dados[i]['vencimento']}'>
 									<input type="date" id="pagameBoleto" name="pagameBoleto" placeholder="Pagamento" value='${retorno.dados[i]['pagamento']}'>
@@ -109,10 +164,17 @@ function editar(nome, vencimento){
 	document.querySelector("#DialogOperacoes").show();
 }
 
-//MUDAR OS INPUTS PARA DATE
-document.querySelector("#vencimBoleto").addEventListener("click", () =>{
-	document.querySelector("#vencimBoleto").type = "date";
-});
-document.querySelector("#pagameBoleto").addEventListener("click", () =>{
-	document.querySelector("#pagameBoleto").type = "date";
-});
+
+//POP-UP DE CONFIRMAÇÃO PARA APAGAR O PAGAMENTO
+function apagar(id){
+	document.querySelector("#dialogConfirm").show();
+	document.querySelector("#dialogConfirm").style.display = "flex";
+	document.querySelector("#idPag").value = id;
+
+
+	//FECHAR O POP-UP DE CONFIRMAÇÃO
+	document.querySelector("#fechar").addEventListener("click", () =>{
+		document.querySelector("#dialogConfirm").style.display = "none";
+		document.querySelector("#dialogConfirm").close();
+	});
+}

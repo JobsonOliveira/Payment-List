@@ -1,7 +1,7 @@
 <?php
 
 //$banco DEVE ESTAR POR ULTIMO
-$conn = mysqli_connect('localhost', 'root', '', 'BdPaymentList');
+$conn = mysqli_connect('localhost', 'root', '', 'bdpaymentlist');
 
 //TRATAMENTO DE ERRO DE CONEXÃO
 if(!$conn){
