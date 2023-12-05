@@ -72,15 +72,15 @@ padding: 5px;
 #divOpcoes{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    padding: 5px;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 52px;
 }
 /*DIV CONTENDO O VALOR TOTAL RECEBIDO*/
 #divValorTotal{
     display: flex;
     justify-content: left;
+    padding-left: 1px;
 }
 /*DIV COM O FILTRO DE PESQUISA*/
 #divFiltro{
@@ -91,18 +91,28 @@ padding: 5px;
 #divBtnAddPag{
     display: flex;
     justify-content: end;
+    height: 100%;
+    padding: 1px;
 }
-/*DIV CONTENDO BUTTON PARA NOVO PAGAMENTO*/
+/*IMAGEM DO BUTTON DE ADICIONAR NOVO PAGAMENTO*/
+#AddPag{
+    width: 40px;
+}
+/*BUTTON PARA NOVO PAGAMENTO*/
 #divOpcoes button{
     display: flex;
     cursor: pointer;
-    border: 1px solid #000;
+    border: none;
     border-radius: 5px;
-    padding: 5px;
     font-size: 18px;
-    background-color: #a1a1a1;
+    background-color: transparent;
     align-items: center;
     justify-content: center;
+    background-color: #a1a1a1;
+    padding: 1px;
+    border: 1px solid #000;
+    height: 50px;
+    width: 50px;
 }
 /*ANIMAÇÃO DO BUTTON*/
 #divOpcoes button:hover{
@@ -118,10 +128,6 @@ padding: 5px;
     to{
         background-color: #a1a1a1;
     }
-}
-/*IMAGEM DO BUTTON DE ADICIONAR NOVO PAGAMENTO*/
-#AddPag{
-    width: 60px;
 }
 
 /*INPUT DE FILTRO DE PESQUISA*/
@@ -160,7 +166,7 @@ padding: 5px;
 }
 /*GUIA PARA LOCALIZAÇÃO DE INFORMAÇÕES ("CLIENTE", "VENCIMENTO", ETC)*/
 #tablePagamentos th{
-    background-color: #a1a1a1;
+    background-color: rgba(0, 0, 255, 0.767);
 }
 
 /*LISTA ONDE FICA OS PAGAMENTOS DOS CLIENTES*/
@@ -272,7 +278,7 @@ div#divEnvolveLista{
 }
 /*POP-UP DE CONFIRMAÇÃO PARA APAGAR PAGAMENTO*/
 #divConfirm{
-    background-color: #fff;
+    background-color: rgba(0, 0, 255, 0.767);
     padding: 5px;
     border: 1px solid #000;
     border-radius: 5px;
@@ -293,7 +299,7 @@ div#divEnvolveLista{
     font-size: 18px;
     background-color: #a1a1a1;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
     width: 50%;
     outline: none;
 }
@@ -315,4 +321,23 @@ div#divEnvolveLista{
 }
 #rodape a{
 	text-decoration: none;
+}
+
+/*-----------------------------------------LOGOUT DO SITE---------------*/
+#dialogSaindo{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border: none;
+    outline: none;
+}
+#comprimento{
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: #a1a1a1;
+    width: 170px;
+    height: 30px;
+    text-align: center;
 }

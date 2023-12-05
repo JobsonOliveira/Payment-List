@@ -1,3 +1,5 @@
+//ESTE É O ARQUIVO JAVASCRIPT PRINCIPAL DO PROJETO
+
 //MOSTRAR OS PAGAMENTOS REALIZADOS
 atualizar();
 async function atualizar(){
@@ -91,12 +93,17 @@ document.querySelector("#BTNAddPag").addEventListener("click", ()=>{
 	//MUDAR OS INPUTS PARA DATE
 	document.querySelector("#vencimBoleto").addEventListener("click", () =>{
 		document.querySelector("#vencimBoleto").type = "date";
-
 	});
+	document.querySelector("#vencimBoleto").onkeypress = (event) => {
+		document.querySelector("#vencimBoleto").type = "date";
+	}
+
 	document.querySelector("#pagameBoleto").addEventListener("click", () =>{
 		document.querySelector("#pagameBoleto").type = "date";
-
 	});
+	document.querySelector("#pagameBoleto").onkeypress = (event) => {
+		document.querySelector("#pagameBoleto").type = "date";
+	}
 });
 
 //FECHAR O POP-UP
@@ -178,3 +185,18 @@ function apagar(id){
 		document.querySelector("#dialogConfirm").close();
 	});
 }
+
+document.querySelector("#imgSair").addEventListener("click", () => {
+	document.querySelector("body").innerHTML = `
+		<dialog id='dialogSaindo'>
+			<div id='comprimento'>
+				<h3>Volte sempre!</h3>
+			</div>
+		</dialog>
+	`;
+	document.querySelector("#dialogSaindo").show();
+
+	setTimeout( () => {
+		window.open("../PHP/logout.php","_self");
+	}, 1000);
+});
