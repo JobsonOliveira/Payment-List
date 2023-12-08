@@ -48,7 +48,7 @@ if (($result) and ($result->num_rows != 0) ) {
                 }
             }
         }else{
-            echo '<script> alert("Login ou senha incorretos!"); window.open("../login.html","_self");</script>';
+            echo '<script> alert("Login ou senha incorretos!"); window.open("../index.html","_self");</script>';
         }
     }
 }

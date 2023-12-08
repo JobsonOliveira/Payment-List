@@ -16,7 +16,7 @@ if ($result) {
                     
     if ($result2) {
         //REDIRECIONA O USUÁRIO PAR A TELA DE LOGIN
-        echo '<script> window.open("../login.html","_self"); </script>';
+        echo '<script> window.open("../index.html","_self"); </script>';
     }
 }
 //FECHA A CONEXÃO
