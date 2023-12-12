@@ -32,7 +32,7 @@ if (($result) and ($result->num_rows != 0) ) {
     for ($i = 0; $i < count($dados); $i++) {
         if(($dados[$i]['usuario'] == $Usuario) && ($dados[$i]['senha'] == $Senha)){
 
-            $query_sits = "DELETE FROM log_cliente WHERE `log_cliente`.`logado` = 'false'";  
+            $query_sits = "DELETE FROM log_cliente WHERE `log_cliente`.`logado` <> 'valorqulquer'";
             //REALIZAR A CONEXÃO COM O BANCO ENVIANDO A CONSULTA
             $result = $conn->query($query_sits);
 

@@ -51,12 +51,12 @@ if (($result) and ($result->num_rows != 0) ) {
     if($dadoExiste == false){
 
         //-----------------------------------------------------CADASTRAR O USUÁRIO NO BANCO DE DADOS
-        $query_sits = "INSERT INTO pagamentos(cliente, vencimento, pagamento, valor, forma, funcionario)  VALUES('$Nome', '$Vencimento', '$Pagamento', '$Valor', '$Forma', '$Funcionario'";  
+        $query_sits2 = "INSERT INTO pagamentos(cliente, vencimento, pagamento, valor, forma, funcionario)  VALUES('$Nome', '$Vencimento', '$Pagamento', '$Valor', '$Forma', '$Funcionario')";  
 
         //REALIZAR A CONEXÃO COM O BANCO ENVIANDO A CONSULTA
-        $result = $conn->query($query_sits);
+        $result2 = $conn->query($query_sits2);
             
-        if ($result) {
+        if ($result2) {
             //MOSTRAR NA TELA SE O CADASTRO FOI REALIZADO
             echo '<script> alert("Pagamento cadastrado!"); const win = window.open("../HTML/principal.html","_self"); </script>';
             
@@ -65,15 +65,15 @@ if (($result) and ($result->num_rows != 0) ) {
 }
 
 //SE FOR PARA REGISTRAR O PRIMEIRO USUÁRIO
-else{
+else if (($result) and ($result->num_rows == 0) ) {
     //-----------------------------------------------------CADASTRAR O USUÁRIO NO BANCO DE DADOS
      
-    $query_sits = "INSERT INTO pagamentos(cliente, vencimento, pagamento, valor, forma, funcionario)  VALUES('$Nome', '$Vencimento', '$Pagamento', '$Valor', '$Forma', '$Funcionario')"; 
+    $query_sits3 = "INSERT INTO pagamentos(cliente, vencimento, pagamento, valor, forma, funcionario)  VALUES('$Nome', '$Vencimento', '$Pagamento', '$Valor', '$Forma', '$Funcionario')"; 
     
     //REALIZAR A CONEXÃO COM O BANCO ENVIANDO A CONSULTA
-    $result = $conn->query($query_sits);
+    $result3 = $conn->query($query_sits3);
         
-    if ($result) {
+    if ($result3) {
         //MOSTRAR NA TELA SE O CADASTRO FOI REALIZADO
         echo '<script> alert("Pagamento cadastrado!!"); const win = window.open("../HTML/principal.html","_self"); </script>';
     }

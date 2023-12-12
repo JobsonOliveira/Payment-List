@@ -13,8 +13,8 @@ async function atualizar(){
         	document.querySelector("#listaPagamentos").innerHTML += `
 				<tr class="pagamento">
 					<td>${retorno.dados[i]["cliente"]}</td>
-					<td>${retorno.dados[i]["vencimento_form"]}</td>
-					<td>${retorno.dados[i]["pagamento_form"]}</td>
+					<td class="vencimentos">${retorno.dados[i]["vencimento_form"]}</td>
+					<td class="pagamentos">${retorno.dados[i]["pagamento_form"]}</td>
 					<td class="valorPago">${retorno.dados[i]["valor"]}</td>
 					<td>${retorno.dados[i]["forma"]}</td>
 					<td>${retorno.dados[i]["funcionario"]}</td>
@@ -27,9 +27,9 @@ async function atualizar(){
     	}
 		//MOSTRAR O VALOR TOTAL RECEBIDO
 		let valorRecebido = document.getElementsByClassName("valorPago");
-		let valorTotal = 0;
+		let valorTotal = 0.0;
 		for(let i = 0; i < valorRecebido.length; i++){
-			valorTotal += parseInt(valorRecebido[i].innerHTML);
+			valorTotal += parseFloat(valorRecebido[i].innerHTML);
 		}
 		document.querySelector("#valorRecebido").innerHTML = valorTotal;
 	}
@@ -37,42 +37,119 @@ async function atualizar(){
 
 //MOSTRAR O VALOR TOTAL RECEBIDO
 let valorRecebido = document.getElementsByClassName("valorPago");
-let valorTotal = 0;
+let valorTotal = 0.0;
 for(let i = 0; i < valorRecebido.length; i++){
-	valorTotal += parseInt(valorRecebido[i].innerHTML);
+	valorTotal += parseFloat(valorRecebido[i].innerHTML);
 }
 document.querySelector("#valorRecebido").innerHTML = valorTotal;
 		
 //FILTRAR OS DADOS PESQUISADOS E ATUALIZAR O VALOR TOTAL RECEBIDO
 function filtro(){
+
+	//INPUT DO FILTRO
     let input = document.querySelector("#filtroDePagamentos").value;
     input = input.toLowerCase();
+
+	//CLASSES A SEREM CONSULTADAS
+	//data de vencimento
+	let classVencimentos = document.getElementsByClassName("vencimentos");
+	//data de pagamento
+	let classDataPagamentos = document.getElementsByClassName("pagamentos");
+	//todos os dados dos pagamento
     let classPagamentos = document.getElementsByClassName("pagamento");
 
-	for (let i = 0; i < classPagamentos.length; i++) {
-		for (let it = 0; it < valorRecebido.length; it++) {
-    				
-  			if (!classPagamentos[i].innerHTML.toLowerCase().includes(input)) {
-            
-      			classPagamentos[i].style.display = "none";
-      			valorRecebido[i].style.display = "none";
-            				
-  			}else{
+	//CHECKBOX DE FILTRO
+	let checkVencimento = document.querySelector("#checkVencimento");
+	let checkPagamento = document.querySelector("#checkPagamento");
 
-      			classPagamentos[i].style.removeProperty('display');
-      			valorRecebido[i].style.removeProperty('display');
-  			}
-  		}
-	}	
-    			
-	valorTotal = 0;		
-	for(let it = 0; it < valorRecebido.length; it++){
+	//FILTRAR POR DATA DE VENCIMENTO DO BOLETO
+	if(checkVencimento.checked){
+		for (let i = 0; i < classPagamentos.length; i++) {
+			for (let it = 0; it < valorRecebido.length; it++) {
+				for (let ivenc = 0; ivenc < classVencimentos.length; ivenc++) {		
+
+				  	if (!classVencimentos[i].innerHTML.toLowerCase().includes(input)) {
+				
+						classPagamentos[i].style.display = "none";
+					  	valorRecebido[i].style.display = "none";
+								
+				  	}else{
+	
+						classPagamentos[i].style.removeProperty('display');
+					  	valorRecebido[i].style.removeProperty('display');
+				  	}
+				}
+			}
+		}	
 					
-		if(valorRecebido[it].style.display != "none"){
-			valorTotal += parseInt(valorRecebido[it].innerHTML);
+		valorTotal = 0.0;		
+		for(let it = 0; it < valorRecebido.length; it++){
+						
+			if(valorRecebido[it].style.display != "none"){
+				valorTotal += parseFloat(valorRecebido[it].innerHTML);
+			}
 		}
+		document.querySelector("#valorRecebido").innerHTML = valorTotal;
 	}
-	document.querySelector("#valorRecebido").innerHTML = valorTotal;
+	//FILTRAR POR DATA DE PAGAMENTO
+	if(checkPagamento.checked){
+		//todos os dados do pagamento
+		for (let i = 0; i < classPagamentos.length; i++) {
+			//valor recebido
+			for (let it = 0; it < valorRecebido.length; it++) {
+				//data de pagamento
+				for (let ivenc = 0; ivenc < classDataPagamentos.length; ivenc++) {		
+
+				  	if (!classDataPagamentos[i].innerHTML.toLowerCase().includes(input)) {
+				
+						classPagamentos[i].style.display = "none";
+					  	valorRecebido[i].style.display = "none";
+								
+				  	}else{
+	
+						classPagamentos[i].style.removeProperty('display');
+					  	valorRecebido[i].style.removeProperty('display');
+				  	}
+				}
+			}
+		}	
+					
+		valorTotal = 0.0;		
+		for(let it = 0; it < valorRecebido.length; it++){
+						
+			if(valorRecebido[it].style.display != "none"){
+				valorTotal += parseFloat(valorRecebido[it].innerHTML);
+			}
+		}
+		document.querySelector("#valorRecebido").innerHTML = valorTotal;
+	}
+	//FILTRO GERAL (TODOS OS ATRIBUTOS DO PAGAMENTO)
+	if((checkVencimento.checked == false) && (checkPagamento.checked == false)){
+		for (let i = 0; i < classPagamentos.length; i++) {
+			for (let it = 0; it < valorRecebido.length; it++) {
+						
+				  if (!classPagamentos[i].innerHTML.toLowerCase().includes(input)) {
+				
+					  classPagamentos[i].style.display = "none";
+					  valorRecebido[i].style.display = "none";
+								
+				  }else{
+	
+					  classPagamentos[i].style.removeProperty('display');
+					  valorRecebido[i].style.removeProperty('display');
+				  }
+			  }
+		}	
+					
+		valorTotal = 0.0;		
+		for(let it = 0; it < valorRecebido.length; it++){
+						
+			if(valorRecebido[it].style.display != "none"){
+				valorTotal += parseFloat(valorRecebido[it].innerHTML);
+			}
+		}
+		document.querySelector("#valorRecebido").innerHTML = valorTotal;
+	}
 }
 
 //AÇÃO PARA ABRIR O POP-UP E ADICIONAR NOVO PAGAMENTO
@@ -89,6 +166,10 @@ document.querySelector("#BTNAddPag").addEventListener("click", ()=>{
 	document.querySelector("#valorPago").value = "";
 	document.querySelector("#forma").value = "Pix";
 	document.querySelector("#funcionario").value = "";
+
+	//COMO O INPUT DE FUNCIONÁRIO ESTARÁ AO ABRIR O POP-UP
+	document.querySelector("#funcionario").value = "Alcides";
+	document.querySelector("#funcionario").setAttribute("disabled", "disabled");
 
 	//MUDAR OS INPUTS PARA DATE
 	document.querySelector("#vencimBoleto").addEventListener("click", () =>{
@@ -143,7 +224,7 @@ function editar(nome, vencimento){
 									<input type="text" id="nomeCliente" name="nomeCliente" placeholder="Cliente" value='${retorno.dados[i]['cliente']}'>
 									<input type="date" id="vencimBoleto" name="vencimBoleto" placeholder="Vencimento" value='${retorno.dados[i]['vencimento']}'>
 									<input type="date" id="pagameBoleto" name="pagameBoleto" placeholder="Pagamento" value='${retorno.dados[i]['pagamento']}'>
-									<input type="number" id="valorPago" name="valorPago" placeholder="Valor" value='${retorno.dados[i]['valor']}'>
+									<input type="number" step="0.01" id="valorPago" name="valorPago" placeholder="Valor" value='${retorno.dados[i]['valor']}'>
 									<select name="forma" id="forma" value='Débito'>
 										<option value="Pix">Pix</option>
 										<option value="Espécie">Espécie</option>
@@ -200,3 +281,26 @@ document.querySelector("#imgSair").addEventListener("click", () => {
 		window.open("../PHP/logout.php","_self");
 	}, 1000);
 });
+
+//BUTTON PARA ABRIR A ABA DE ESTOQUE DA EMPRSA
+/*document.querySelector("#btnEstoque").addEventListener("click", () =>{
+	document.querySelector("#dialogEstoque").show();
+});*/
+
+//function modificador(valor){
+	//alert(valor);
+document.querySelector("#forma").addEventListener("click", ()=>{
+	 
+ 
+    // vamos obter a opção selecionada
+    var selecionada = document.querySelector("#forma").options[document.querySelector("#forma").options.selectedIndex];	
+	
+	if(selecionada.value == "Pix"){
+		document.querySelector("#funcionario").value = "Alcides";
+		document.querySelector("#funcionario").setAttribute("disabled", "disabled");
+	}else{
+		document.querySelector("#funcionario").value = "";
+		document.querySelector("#funcionario").removeAttribute("disabled");
+	}
+});
+//};
