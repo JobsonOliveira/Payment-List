@@ -17,6 +17,11 @@ if (isset($_POST["salvarPag"])) {
     $Forma = $_POST["forma"];
     $Funcionario = ucwords(strtolower($_POST["funcionario"]));
 }
+
+if($Funcionario == ""){
+    $Funcionario = "Alcides";
+}
+
 //CONSULTA PARA O BANCO
 $query_sits = "SELECT cliente, vencimento, pagamento, valor, forma, funcionario FROM pagamentos";
      
@@ -58,7 +63,7 @@ if (($result) and ($result->num_rows != 0) ) {
             
         if ($result2) {
             //MOSTRAR NA TELA SE O CADASTRO FOI REALIZADO
-            echo '<script> alert("Pagamento cadastrado!"); const win = window.open("../HTML/principal.html","_self"); </script>';
+            echo '<script> alert("Pagamento registrado!"); const win = window.open("../HTML/principal.html","_self"); </script>';
             
         }
     }

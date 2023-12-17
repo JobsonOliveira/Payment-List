@@ -225,7 +225,7 @@ function editar(nome, vencimento){
 									<input type="date" id="vencimBoleto" name="vencimBoleto" placeholder="Vencimento" value='${retorno.dados[i]['vencimento']}'>
 									<input type="date" id="pagameBoleto" name="pagameBoleto" placeholder="Pagamento" value='${retorno.dados[i]['pagamento']}'>
 									<input type="number" step="0.01" id="valorPago" name="valorPago" placeholder="Valor" value='${retorno.dados[i]['valor']}'>
-									<select name="forma" id="forma" value='Débito'>
+									<select name="forma" id="forma" value='${retorno.dados[i]['forma']}'>
 										<option value="Pix">Pix</option>
 										<option value="Espécie">Espécie</option>
 										<option value="Débito">Débito</option>
@@ -241,6 +241,7 @@ function editar(nome, vencimento){
 							</form>
 						</div>
 					`;
+					
 				}
     	    }
     	}else{
@@ -296,8 +297,8 @@ document.querySelector("#forma").addEventListener("click", ()=>{
     var selecionada = document.querySelector("#forma").options[document.querySelector("#forma").options.selectedIndex];	
 	
 	if(selecionada.value == "Pix"){
-		document.querySelector("#funcionario").value = "Alcides";
 		document.querySelector("#funcionario").setAttribute("disabled", "disabled");
+		document.querySelector("#funcionario").value = "Alcides";
 	}else{
 		document.querySelector("#funcionario").value = "";
 		document.querySelector("#funcionario").removeAttribute("disabled");
