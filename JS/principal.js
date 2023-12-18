@@ -25,13 +25,16 @@ async function atualizar(){
 				</tr>
 			`;
     	}
-		//MOSTRAR O VALOR TOTAL RECEBIDO
-		let valorRecebido = document.getElementsByClassName("valorPago");
-		let valorTotal = 0.0;
-		for(let i = 0; i < valorRecebido.length; i++){
-			valorTotal += parseFloat(valorRecebido[i].innerHTML);
-		}
-		document.querySelector("#valorRecebido").innerHTML = valorTotal;
+
+		document.querySelector("#btnValTotal").addEventListener("click", () =>{
+			//MOSTRAR O VALOR TOTAL RECEBIDO
+			let valorRecebido = document.getElementsByClassName("valorPago");
+			let valorTotal = 0.0;
+			for(let i = 0; i < valorRecebido.length; i++){
+				valorTotal += parseFloat(valorRecebido[i].innerHTML);
+			}
+			document.querySelector("#valorRecebido").innerHTML = "R$" + valorTotal;
+		});
 	}
 }
 
@@ -81,15 +84,18 @@ function filtro(){
 				}
 			}
 		}	
-					
-		valorTotal = 0.0;		
-		for(let it = 0; it < valorRecebido.length; it++){
+		
+		document.querySelector("#btnValTotal").addEventListener("click", () =>{
+			valorTotal = 0.0;		
+			for(let it = 0; it < valorRecebido.length; it++){
 						
-			if(valorRecebido[it].style.display != "none"){
-				valorTotal += parseFloat(valorRecebido[it].innerHTML);
+				if(valorRecebido[it].style.display != "none"){
+					valorTotal += parseFloat(valorRecebido[it].innerHTML);
+				}
 			}
-		}
-		document.querySelector("#valorRecebido").innerHTML = valorTotal;
+			document.querySelector("#valorRecebido").innerHTML = "R$" + valorTotal;
+		});
+		
 	}
 	//FILTRAR POR DATA DE PAGAMENTO
 	if(checkPagamento.checked){
@@ -113,15 +119,17 @@ function filtro(){
 				}
 			}
 		}	
-					
-		valorTotal = 0.0;		
-		for(let it = 0; it < valorRecebido.length; it++){
+		
+		document.querySelector("#btnValTotal").addEventListener("click", () =>{
+			valorTotal = 0.0;		
+			for(let it = 0; it < valorRecebido.length; it++){
 						
-			if(valorRecebido[it].style.display != "none"){
-				valorTotal += parseFloat(valorRecebido[it].innerHTML);
+				if(valorRecebido[it].style.display != "none"){
+					valorTotal += parseFloat(valorRecebido[it].innerHTML);
+				}
 			}
-		}
-		document.querySelector("#valorRecebido").innerHTML = valorTotal;
+			document.querySelector("#valorRecebido").innerHTML = "R$" + valorTotal;
+		});
 	}
 	//FILTRO GERAL (TODOS OS ATRIBUTOS DO PAGAMENTO)
 	if((checkVencimento.checked == false) && (checkPagamento.checked == false)){
@@ -140,15 +148,17 @@ function filtro(){
 				  }
 			  }
 		}	
-					
-		valorTotal = 0.0;		
-		for(let it = 0; it < valorRecebido.length; it++){
+				
+		document.querySelector("#btnValTotal").addEventListener("click", () =>{
+			valorTotal = 0.0;		
+			for(let it = 0; it < valorRecebido.length; it++){
 						
-			if(valorRecebido[it].style.display != "none"){
-				valorTotal += parseFloat(valorRecebido[it].innerHTML);
+				if(valorRecebido[it].style.display != "none"){
+					valorTotal += parseFloat(valorRecebido[it].innerHTML);
+				}
 			}
-		}
-		document.querySelector("#valorRecebido").innerHTML = valorTotal;
+			document.querySelector("#valorRecebido").innerHTML = "R$" + valorTotal;
+		});
 	}
 }
 
@@ -159,7 +169,7 @@ document.querySelector("#BTNAddPag").addEventListener("click", ()=>{
 	document.querySelector("#DialogOperacoes").style.display = "flex";
 	document.querySelector("#DialogOperacoes").show();
 
-	//ZERARO SO VALORES DO POP-UP
+	//ZERAR OS VALORES DO POP-UP
 	document.querySelector("#nomeCliente").value = "";
 	document.querySelector("#vencimBoleto").value = "";
 	document.querySelector("#pagameBoleto").value = "";
@@ -241,7 +251,7 @@ function editar(nome, vencimento){
 							</form>
 						</div>
 					`;
-					
+					document.querySelector("#forma").value = `${retorno.dados[i]['forma']}`;
 				}
     	    }
     	}else{

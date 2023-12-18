@@ -9,8 +9,7 @@ body{
     background-color: #bbbbbb;
 }
 body a{
-    color: blue;
-    text-decoration: none;
+    color: #000;
 }
 @media (min-width: 505px) and (max-width: 2000px){
     
@@ -21,7 +20,6 @@ body a{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid #000;
     border-radius: 5px;
 }
 
@@ -32,7 +30,6 @@ body a{
     width: 250px;
     justify-content: center;
     position: relative;
-    background-color: #fff;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
@@ -52,6 +49,13 @@ body a{
 #divInputs{
     display: grid;
     align-items: center;
+    background-color: #fff;
+    width: 250px;
+    justify-content: center;
+    border: 1px solid #000;
+    border-right: none;
+    border-bottom: none;
+    border-top-left-radius: 5px;
 }
 
 /*INPUTS*/
@@ -104,6 +108,12 @@ body a{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-right: none;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+
 }
 /*BUTTON DE LOGIN*/
 #logoInputsButton button{
@@ -125,9 +135,9 @@ body a{
     display: flex;
     width: 250px;
     background-color: #e7e6e6;
-    border-left: 1px solid #000;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    border-bottom-left-radius: 0px;
 }
 /*MENSÁGEM DE SAUDAÇÃO*/
 #saudacao p{
@@ -153,7 +163,6 @@ p#final{
     top: 3%;
     left: 50%;
     transform: translate(-50%, -0%);
-    border: 1px solid #000;
     border-radius: 5px;
 }
 
@@ -164,9 +173,6 @@ p#final{
     width: 250px;
     justify-content: center;
     position: relative;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background-color: #fff;
 }
 /*DIV CONTENDO SOMENTE A LOGO*/
 #divLogo{
@@ -184,7 +190,14 @@ p#final{
 #divInputs{
     display: grid;
     align-items: center;
+    width: 250px;
     height: 150px;
+    background-color: #fff;
+    justify-content: center;
+    border: 1px solid #000;
+    border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 /*INPUTS*/
@@ -238,6 +251,10 @@ p#final{
     align-items: center;
     justify-content: center;
     height: 60px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-bottom: none;
+    border-top: none;
 }
 /*BUTTON DE LOGIN*/
 #logoInputsButton button{
@@ -259,7 +276,7 @@ p#final{
     display: flex;
     width: 250px;
     background-color: #e7e6e6;
-    border-top: 1px solid #000;
+    border: 1px solid #000;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }

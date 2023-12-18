@@ -42,18 +42,24 @@
 			<!--DIV COM O VALOR TOTAL RECEBIDO, O FILTRO E O BUTTON PARA ADICIONAR PAGAMENTO-->
 			<div id='divOpcoes'>
 				<div id='divValorTotal'>
-					<p>Valor total: R$</p>
+					<button id="btnValTotal">Total em BRL</button>
 					<!--VAI RECEBER O VALOR TOTAL QUE FOI RECOLHIDO-->
 					<p id="valorRecebido"></p>
 				</div>
 				<div id="divFiltro">
 					<input type="text" id="filtroDePagamentos" onkeyup="filtro()" placeholder="Digite para filtrar">
 				</div>
-				<div id="btnFiltro">
-					<input type="checkbox" name="" id="checkVencimento">
-					<label for="checkVencimento">Vencimento</label>
-					<input type="checkbox" name="" id="checkPagamento">
-					<label for="checkPagamento">Pagamento</label>
+				<div id="divBtnFiltro">
+					<div class="divCheckbox">
+						<input type="checkbox" name="" id="checkVencimento">
+						<label for="checkVencimento" id="labelVencimento">Vencimento</label>
+						
+					</div>
+
+					<div class="divCheckbox">
+						<input type="checkbox" name="" id="checkPagamento">
+						<label for="checkPagamento" id="labelPagamento">&nbsp;Pagamento</label>
+					</div>
 				</div>
 				<div id="divBtnAddPag">
 					<!--<button id="btnEstoque">Etoque</button>-->
