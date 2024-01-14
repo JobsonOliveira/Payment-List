@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P.L - Login</title>
+    <link rel="shortcut icon" href="imagens/logoIco.ico" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/index.css">
+</head>
+<body>
+    <form action="PHP/login.php" method="POST">
+        <div id="principal">
+            <div id="logoInputsButton">
+                <div id="divLogo">
+                    <img src="imagens/logo.png" alt="logo">
+                </div>
+                <div id="divInputs">
+                    <input type="text" name="usuario" id="usuario" required>
+                    <label id="labelUsuario" for="usuario">Usuário</label>
+
+                    <input type="password" name="senha" id="senha" required>
+                    <label id="labelSenha" for="senha">Senha</label>
+                </div>
+                <div id="divButton">
+                    <button type="submit" name="entrar">Acessar</button>
+                </div>
+            </div>
+
+            <div id="saudacao">
+                <p>
+                    <strong>Bem vindo!</strong> <br><br>
+                    O Paymnet List foi criado para lhe ajudar a ter o controle sobre os pagamentos que foram efetuados na sua empresa e sobre o estoque de alguns materiais utilizados pelo suporte técnico. <br>
+                    Agradecemos pela sua presença no nosso site e nos colocamos a disposição para solucionar problemas, melhorar ou adicionar qualquer funcionalidade que venha a aperfeiçoar a sua experiência conosco. <br><br><strong>Estes são os meios de contato com o desenvolvedor:</strong> <br>
+                    <a href="mailto:jobsonoliveira007@gmail.com" target="_blank">jobsonoliveira007@gmail.com</a>
+                    <a href="https://api.whatsapp.com/send/?phone=8194137488&text&type=phone_number&app_absent=0" target="_blank">WhatsApp</a><br>
+                    <a href="https://www.linkedin.com/in/jobson-de-oliveira-coutinho-5882b9251" target="_blank">Linkedin</a><br>
+                    <a href="https://github.com/JobsonOliveira" target="_blank">GitHub</a> <br><br>
+                    <strong>Desenvolvedor:</strong><br>Jobson de Oliveira Coutinho
+                </p>
+            </div>
+        </div>
+    </form>
+
+    <script src="JS/index.js"></script>
+</body>
+</html>

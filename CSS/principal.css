@@ -1,0 +1,1196 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Geologica', 'AR One Sans', sans-serif;
+    min-height: 100vh;
+}
+body::-webkit-scrollbar{
+  background-color: #a1a1a1;
+  border: 1px solid #000;
+  width: 6px;  
+}
+body::-webkit-scrollbar-thumb{
+  background-color: #787878;
+  border: 1px solid #000;
+}
+/*SCROLL*/
+#divEnvolveLista::-webkit-scrollbar{
+  background-color: #a1a1a1;
+  border: 1px solid #000;
+  width: 6px;
+  height: 8px;
+}
+#divEnvolveLista::-webkit-scrollbar-thumb{
+  background-color: #787878;
+  border: 1px solid #000;
+}
+
+@media (min-width: 762px) and (max-width:2000px){
+
+    /*-----------------------------------------------------------------TOPO DO SITE*/
+/*TODO O TOPO DO SITE*/
+#topo{
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr;
+    border-bottom: 1px solid #000;
+    padding: 1px;
+    background-color: #A1A1A1;
+}
+/*DIV PARA A IMAGEM DA LOGO*/
+#logo{
+display: flex;
+justify-content: center;
+width: 100px;
+padding: 5px;
+}
+#logo img{
+    width: 80px;
+}
+/*NOME DO SITE*/
+#topo h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*DIV COM O BUTTON DE SAIR*/
+#divSair{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 5px;
+}
+/*IMAGEM PARA SAIR DO SITE*/
+#imgSair{
+    width: 30px;
+    cursor: pointer;
+}
+
+/*----------------------------------------------------------------MEIO DO SITE*/
+/*TODO O MEIO DO SITE*/
+#meio{
+	min-height: 550px;
+}
+/*DIV COM O FILTRO DE PESQUISA, VALOR TOTAL RECEBIDO E BUTTON PARA NOVO PAGAMENTO*/
+#divOpcoes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    height: 52px;
+}
+/*DIV CONTENDO O VALOR TOTAL RECEBIDO*/
+#divValorTotal{
+    display: grid;
+    justify-content: left;
+    padding-left: 1px;
+    height: 100%;
+    padding: 1px;
+}
+/*BUTTON PARA VALOR TOTAL RECEBIDO*/
+#btnValTotal{
+    width: 100px;
+    height: 25px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #000;
+    background-color: #a1a1a1;
+    border-radius: 5px;
+}
+#divValorTotal p{
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #000;
+    height: 23px;
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+}
+/*DIV COM O FILTRO DE PESQUISA*/
+#divFiltro{
+    display: flex;
+    justify-content: center;
+}
+#divBtnFiltro{
+    display: grid;
+    width: 150px;
+    gap: 5px;
+}
+/*DIVS COM OS INPUTS E OS LABELS PARA FILTRO POR VENCIMENTO E PAGAMENTO*/
+div.divCheckbox{
+    display: flex;
+    width: 150px;
+    align-items: center;
+}
+/*DIV COM O BUTTON DE ADICIONAR NOVO PAGAMENTO*/
+#divBtnAddPag{
+    display: flex;
+    justify-content: end;
+    height: 100%;
+    padding: 1px;
+}
+/*IMAGEM DO BUTTON DE ADICIONAR NOVO PAGAMENTO*/
+#AddPag{
+    width: 40px;
+}
+/*BUTTON PARA NOVO PAGAMENTO*/
+button#BTNAddPag{
+    display: flex;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    background-color: #a1a1a1;
+    padding: 1px;
+    border: 1px solid #000;
+    height: 50px;
+    width: 50px;
+}
+/*ANIMAÇÃO DO BUTTON*/
+#divOpcoes button:hover{
+    animation: 1s animButton infinite linear;
+}
+@keyframes animButton{
+    from{
+        background-color: #a1a1a1;
+    }
+    50%{
+        background-color: #272727;
+    }
+    to{
+        background-color: #a1a1a1;
+    }
+}
+
+/*INPUT DE FILTRO DE PESQUISA*/
+#divOpcoes input{
+    background: transparent;
+    width: 300px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    font-size: 18px;
+}
+
+/*DIV CONTENDO OS BUTTONS DE APAGAR E EDITAR UM PAGAMENTO*/
+.opcoes{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1px;
+}
+/*IMAGENS DE EDITAR E APAGAR PAGAMENTO*/
+.opcoes img{
+    width: 25px;
+    height: 30px;
+    cursor: pointer;
+}
+/*IMAGEM DO BUTTON DE EDITAR PAGAMENTO*/
+.BTNeditar{
+    height: 30px;
+    width: 30px;
+}
+/*TABELA COM OS PAGAMENTOS REGISTRADOS*/
+#tablePagamentos{
+    width: 100%;
+    position: relative;
+}
+/*GUIA PARA LOCALIZAÇÃO DE INFORMAÇÕES ("CLIENTE", "VENCIMENTO", ETC)*/
+#tablePagamentos th{
+    background-color: rgba(0, 0, 255, 0.767);
+}
+
+/*LISTA ONDE FICA OS PAGAMENTOS DOS CLIENTES*/
+div#divEnvolveLista{
+	border: 1px solid #000;
+	max-height: 500px;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+/*CADA PAGAMENTO INDIVIDUAL*/
+#listaPagamentos tr td{
+    border: 1px solid #000;
+    text-align: center;
+    justify-content: center;
+}
+/*DIALOG PARA MOSTRAR AS OPERAÇÕES QUE SERÃO REALIZADAS*/
+#DialogOperacoes{
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, .6);
+    justify-content: center;
+    align-items: center;
+}
+/*DIV FORMULÁRIO PARA ADICIONAR PAGAMENTO*/
+#formulario{
+    position: relative;
+    display: grid;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #fff;
+}
+/*IMAGEM DO BUTTON PARA FECHAR O FORMULÁRIO*/
+#btnFechar{
+    position: absolute;
+    background-color: #fff;
+    border-radius: 100%;
+    top: -3%;
+    left: 93%;
+    transform: translate(-50% -50%);
+    width: 35px;
+    cursor: pointer;
+}
+/*DIV COM O TITULO DO POP-UP DE ADICIONAR PAGAMENTO*/
+#DivTitulo{
+    padding: 15px;
+
+}
+/*DIV COM OS INPUTS PARA ADICIONAR PAGAMENTO*/
+#DivInputs{
+    display: grid;
+    gap: 10px;
+    padding: 5px;
+}
+/*PLACEHOLDER DOS INPUTS DO FORMULÁRO*/
+#DivInputs input::placeholder{
+    color: #a1a1a1;
+}
+/*INPUTS DO FORMULÁRIO PARA DICIONAR PAGAMENTO*/
+#DivInputs input, select{
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    font-size: 18px;
+    height: 35px;
+}
+
+/*DIV COM O BUTTON DE ADICIONAR PAGAMENTO*/
+#DivBtnSalvar{
+    padding: 5px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+/*BUTTON DE ADICIONAR PAGAMENTO*/
+#DivBtnSalvar button{
+    display: flex;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    background-color: #a1a1a1;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+}
+/*ANIMAÇÃO DO BUTTON*/
+#DivBtnSalvar button:hover{
+    animation: 1s animButton infinite linear;
+}
+/*DIALOG COM O POP-UP PARA CONFIMAÇÃO PAR APAGAR PAGAMENTO*/
+#dialogConfirm{
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .6);
+    border: none;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+}
+/*POP-UP DE CONFIRMAÇÃO PARA APAGAR PAGAMENTO*/
+#divConfirm{
+    background-color: rgba(0, 0, 255, 0.767);
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    display: grid;
+}
+/*TEXTO DO POP-UP DE CONFIRMAÇÃO PARA APAGAR PAGAMENTO*/
+#divConfirm p{
+    padding-bottom: 5px;
+}
+/*DIV COM OS BUTTONS DE CONFIRMAÇÃO E DE FECHAMENTO*/
+#buttonsConfirm{
+    display: flex;
+    gap: 3px;
+}
+/*BUTTONS DE CONFIRMAÇÃO DE PARA FECHAR POP-UP*/
+#divConfirm button{
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    background-color: #a1a1a1;
+    align-items: center;
+    justify-content: center; 
+    width: 50%;
+    outline: none;
+}
+/*ANIMAÇÃO DOS BUTTONS*/
+#divConfirm button:hover{
+    animation: 1s animButton infinite linear;
+}
+/*DIALOG DE ESTOQUE DA EMPRESA*/
+#dialogEstoque{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*DIV COM OS LABELS E INPUTS PARA ESTOQUE*/
+#divEstoque{
+    background-color: green;
+    padding: 5px;
+    display: flex;
+}
+/*DIV CONTENDO SOMENTE OS LABELS PARA ESTOQUE*/
+#divEstoque #materiais{
+    padding: 5px;
+    display: grid;
+}
+/*DIV CONTENDO SOMENTE OS INPUTS PARA O ESTOQUE*/
+#divEstoque #inputs{
+    padding: 5px;
+    display: grid;
+}
+/*----------------------------------------------------------------RODAPE DO SITE*/
+/*TODO O RODAPÉ DO SITE*/
+#rodape{
+	display: grid;
+	height: 50px;
+	width: 100%;
+	background-color: #a1a1a1;
+	text-align: center;
+	align-items: end;
+}
+#rodape a{
+	text-decoration: none;
+}
+
+/*-----------------------------------------LOGOUT DO SITE---------------*/
+#dialogSaindo{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border: none;
+    outline: none;
+}
+#comprimento{
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: #a1a1a1;
+    width: 170px;
+    height: 30px;
+    text-align: center;
+}
+}
+
+/*----------------APARELHOS MENORES---------------*/
+@media (min-width: 619px) and (max-width:761px){
+
+/*-----------------------------------------------------------------TOPO DO SITE*/
+/*------TODO O TOPO DO SITE-------*/
+#topo{
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr;
+    border-bottom: 1px solid #000;
+    padding: 1px;
+    background-color: #A1A1A1;
+}
+/*DIV PARA A IMAGEM DA LOGO*/
+#logo{
+display: flex;
+justify-content: center;
+width: 100px;
+padding: 5px;
+}
+#logo img{
+    width: 80px;
+}
+/*NOME DO SITE*/
+#topo h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*DIV COM O BUTTON DE SAIR*/
+#divSair{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 5px;
+}
+/*IMAGEM PARA SAIR DO SITE*/
+#imgSair{
+    width: 30px;
+    cursor: pointer;
+}
+
+/*----------------------------------------------------------------MEIO DO SITE*/
+
+
+/*TODO O MEIO DO SITE*/
+#meio{
+	min-height: 550px;
+}
+/*DIV COM O FILTRO DE PESQUISA, VALOR TOTAL RECEBIDO E BUTTON PARA NOVO PAGAMENTO*/
+#divOpcoes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    height: 52px;
+}
+/*DIV CONTENDO O VALOR TOTAL RECEBIDO*/
+#divValorTotal{
+    display: grid;
+    justify-content: left;
+    padding-left: 1px;
+    height: 100%;
+    padding: 1px;
+}
+/*BUTTON PARA VALOR TOTAL RECEBIDO*/
+#btnValTotal{
+    width: 100px;
+    height: 25px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #000;
+    background-color: #a1a1a1;
+    border-radius: 5px;
+}
+#divValorTotal p{
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #000;
+    height: 23px;
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+}
+/*DIV COM O FILTRO DE PESQUISA*/
+#divFiltro{
+    display: flex;
+    justify-content: center;
+}
+/*DIV COM OS INPUT BOX*/
+#divBtnFiltro{
+    display: grid;
+    width: 150px;
+    gap: 5px;
+}
+/*DIVS COM OS INPUTS E OS LABELS PARA FILTRO POR VENCIMENTO E PAGAMENTO*/
+div.divCheckbox{
+    display: flex;
+    width: 150px;
+    align-items: center;
+}
+/*DIV COM O BUTTON DE ADICIONAR NOVO PAGAMENTO*/
+#divBtnAddPag{
+    display: flex;
+    justify-content: end;
+    height: 100%;
+    padding: 1px;
+}
+/*IMAGEM DO BUTTON DE ADICIONAR NOVO PAGAMENTO*/
+#AddPag{
+    width: 40px;
+}
+/*BUTTON PARA NOVO PAGAMENTO*/
+button#BTNAddPag{
+    display: flex;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    background-color: #a1a1a1;
+    padding: 1px;
+    border: 1px solid #000;
+    height: 50px;
+    width: 50px;
+}
+/*ANIMAÇÃO DO BUTTON*/
+#divOpcoes button:hover{
+    animation: 1s animButton infinite linear;
+}
+@keyframes animButton{
+    from{
+        background-color: #a1a1a1;
+    }
+    50%{
+        background-color: #272727;
+    }
+    to{
+        background-color: #a1a1a1;
+    }
+}
+
+/*INPUT DE FILTRO DE PESQUISA*/
+#divOpcoes input{
+    background: transparent;
+    width: 300px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    font-size: 18px;
+}
+
+/*DIV CONTENDO OS BUTTONS DE APAGAR E EDITAR UM PAGAMENTO*/
+.opcoes{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1px;
+}
+/*IMAGENS DE EDITAR E APAGAR PAGAMENTO*/
+.opcoes img{
+    width: 25px;
+    height: 30px;
+    cursor: pointer;
+}
+/*IMAGEM DO BUTTON DE EDITAR PAGAMENTO*/
+.BTNeditar{
+    height: 30px;
+    width: 30px;
+}
+/*TABELA COM OS PAGAMENTOS REGISTRADOS*/
+#tablePagamentos{
+    width: 100%;
+    position: relative;
+}
+/*GUIA PARA LOCALIZAÇÃO DE INFORMAÇÕES ("CLIENTE", "VENCIMENTO", ETC)*/
+#tablePagamentos th{
+    background-color: rgba(0, 0, 255, 0.767);
+    font-size: 16px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+/*LISTA ONDE FICA OS PAGAMENTOS DOS CLIENTES*/
+div#divEnvolveLista{
+	border: 1px solid #000;
+    max-height: 100vh;
+    max-width: 100%;
+    overflow-x: scroll;
+    overflow-y: auto;
+    white-space:nowrap;
+}
+
+/*CADA PAGAMENTO INDIVIDUAL*/
+#listaPagamentos tr td{
+    border: 1px solid #000;
+    text-align: center;
+    justify-content: center;
+    font-size: 15px;
+}
+/*DIALOG PARA MOSTRAR AS OPERAÇÕES QUE SERÃO REALIZADAS*/
+#DialogOperacoes{
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, .6);
+    justify-content: center;
+    align-items: center;
+}
+/*DIV FORMULÁRIO PARA ADICIONAR PAGAMENTO*/
+#formulario{
+    position: relative;
+    display: grid;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #fff;
+}
+/*IMAGEM DO BUTTON PARA FECHAR O FORMULÁRIO*/
+#btnFechar{
+    position: absolute;
+    background-color: #fff;
+    border-radius: 100%;
+    top: -3%;
+    left: 93%;
+    transform: translate(-50% -50%);
+    width: 35px;
+    cursor: pointer;
+}
+/*DIV COM O TITULO DO POP-UP DE ADICIONAR PAGAMENTO*/
+#DivTitulo{
+    padding: 15px;
+
+}
+/*DIV COM OS INPUTS PARA ADICIONAR PAGAMENTO*/
+#DivInputs{
+    display: grid;
+    gap: 10px;
+    padding: 5px;
+}
+/*PLACEHOLDER DOS INPUTS DO FORMULÁRO*/
+#DivInputs input::placeholder{
+    color: #a1a1a1;
+}
+/*INPUTS DO FORMULÁRIO PARA DICIONAR PAGAMENTO*/
+#DivInputs input, select{
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    font-size: 18px;
+    height: 35px;
+}
+
+/*DIV COM O BUTTON DE ADICIONAR PAGAMENTO*/
+#DivBtnSalvar{
+    padding: 5px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+/*BUTTON DE ADICIONAR PAGAMENTO*/
+#DivBtnSalvar button{
+    display: flex;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    background-color: #a1a1a1;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+}
+/*ANIMAÇÃO DO BUTTON*/
+#DivBtnSalvar button:hover{
+    animation: 1s animButton infinite linear;
+}
+/*DIALOG COM O POP-UP PARA CONFIMAÇÃO PAR APAGAR PAGAMENTO*/
+#dialogConfirm{
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .6);
+    border: none;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+}
+/*POP-UP DE CONFIRMAÇÃO PARA APAGAR PAGAMENTO*/
+#divConfirm{
+    background-color: rgba(0, 0, 255, 0.767);
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    display: grid;
+}
+/*TEXTO DO POP-UP DE CONFIRMAÇÃO PARA APAGAR PAGAMENTO*/
+#divConfirm p{
+    padding-bottom: 5px;
+}
+/*DIV COM OS BUTTONS DE CONFIRMAÇÃO E DE FECHAMENTO*/
+#buttonsConfirm{
+    display: flex;
+    gap: 3px;
+}
+/*BUTTONS DE CONFIRMAÇÃO DE PARA FECHAR POP-UP*/
+#divConfirm button{
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    background-color: #a1a1a1;
+    align-items: center;
+    justify-content: center; 
+    width: 50%;
+    outline: none;
+}
+/*ANIMAÇÃO DOS BUTTONS*/
+#divConfirm button:hover{
+    animation: 1s animButton infinite linear;
+}
+/*DIALOG DE ESTOQUE DA EMPRESA*/
+#dialogEstoque{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*DIV COM OS LABELS E INPUTS PARA ESTOQUE*/
+#divEstoque{
+    background-color: green;
+    padding: 5px;
+    display: flex;
+}
+/*DIV CONTENDO SOMENTE OS LABELS PARA ESTOQUE*/
+#divEstoque #materiais{
+    padding: 5px;
+    display: grid;
+}
+/*DIV CONTENDO SOMENTE OS INPUTS PARA O ESTOQUE*/
+#divEstoque #inputs{
+    padding: 5px;
+    display: grid;
+}
+/*----------------------------------------------------------------RODAPE DO SITE*/
+/*TODO O RODAPÉ DO SITE*/
+#rodape{
+	display: grid;
+	height: 50px;
+	width: 100%;
+	background-color: #a1a1a1;
+	text-align: center;
+	align-items: end;
+}
+/*TEXTO DE DESPEDIDA DO SITE*/
+#rodape p{
+	font-size: 12px;
+}
+
+/*-----------------------------------------LOGOUT DO SITE---------------*/
+#dialogSaindo{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border: none;
+    outline: none;
+}
+#comprimento{
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: #a1a1a1;
+    width: 170px;
+    height: 30px;
+    text-align: center;
+}
+}
+/*CELULARES E DESKTOPS*/
+@media (min-width: 0px) and (max-width:618px){
+
+    /*-----------------------------------------------------------------TOPO DO SITE*/
+    /*------TODO O TOPO DO SITE-------*/
+    #topo{
+        display: grid;
+        grid-template-columns: 1fr 7fr 1fr;
+        border-bottom: 1px solid #000;
+        padding: 1px;
+        background-color: #A1A1A1;
+    }
+    /*DIV PARA A IMAGEM DA LOGO*/
+    #logo{
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    padding: 5px;
+    }
+    #logo img{
+        width: 80px;
+    }
+    /*NOME DO SITE*/
+    #topo h1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /*DIV COM O BUTTON DE SAIR*/
+    #divSair{
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        padding: 5px;
+    }
+    /*IMAGEM PARA SAIR DO SITE*/
+    #imgSair{
+        width: 30px;
+        cursor: pointer;
+    }
+    
+    /*----------------------------------------------------------------MEIO DO SITE*/
+    
+    
+    /*TODO O MEIO DO SITE*/
+    #meio{
+        min-height: 100vh;
+    }
+    /*DIV COM O FILTRO DE PESQUISA, VALOR TOTAL RECEBIDO E BUTTON PARA NOVO PAGAMENTO*/
+    #divOpcoes{
+        display: grid;
+        grid-template-areas: 
+        "buttons novPag"
+        "input cont";
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        margin-bottom: 5px;
+    }
+    /*DIV CONTENDO O VALOR TOTAL RECEBIDO*/
+    #divValorTotal{
+        display: grid;
+        grid-area: cont;
+        justify-content: center;
+        padding-left: 1px;
+        height: 100%;
+        padding: 1px;
+        gap: 2px;
+    }
+    /*BUTTON PARA VALOR TOTAL RECEBIDO*/
+    #btnValTotal{
+        width: 100px;
+        height: 25px;
+        cursor: pointer;
+        outline: none;
+        border: 1px solid #000;
+        background-color: #a1a1a1;
+        border-radius: 5px;
+    }
+    #divValorTotal p{
+        display: flex;
+        background-color: #fff;
+        border: 1px solid #000;
+        height: 23px;
+        font-size: 12px;
+        align-items: center;
+        justify-content: center;
+    }
+    /*DIV COM O FILTRO DE PESQUISA*/
+    #divFiltro{
+        display: flex;
+        grid-area: input;
+        justify-content: center;
+    }
+    /*DIV COM OS INPUT BOX*/
+    #divBtnFiltro{
+        display: flex;
+        grid-area: buttons;
+        justify-content: center;
+    }
+    /*DIVS COM OS INPUTS E OS LABELS PARA FILTRO POR VENCIMENTO E PAGAMENTO*/
+    div.divCheckbox{
+        display: flex;
+        width: 110px;
+        align-items: center;
+    }
+    /*DIV COM O BUTTON DE ADICIONAR NOVO PAGAMENTO*/
+    #divBtnAddPag{
+        display: flex;
+        grid-area: novPag;
+        justify-content: center;
+        height: 100%;
+        padding: 1px;
+    }
+    /*IMAGEM DO BUTTON DE ADICIONAR NOVO PAGAMENTO*/
+    #AddPag{
+        width: 40px;
+    }
+    /*BUTTON PARA NOVO PAGAMENTO*/
+    button#BTNAddPag{
+        display: flex;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        background-color: transparent;
+        align-items: center;
+        justify-content: center;
+        background-color: #a1a1a1;
+        padding: 1px;
+        border: 1px solid #000;
+        height: 50px;
+        width: 100px;
+    }
+    /*ANIMAÇÃO DO BUTTON*/
+    #divOpcoes button:hover{
+        animation: 1s animButton infinite linear;
+    }
+    @keyframes animButton{
+        from{
+            background-color: #a1a1a1;
+        }
+        50%{
+            background-color: #272727;
+        }
+        to{
+            background-color: #a1a1a1;
+        }
+    }
+    
+    /*INPUT DE FILTRO DE PESQUISA*/
+    #divOpcoes input{
+        background: transparent;
+        width: 300px;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #000;
+        text-align: center;
+        font-size: 18px;
+    }
+    
+    /*DIV CONTENDO OS BUTTONS DE APAGAR E EDITAR UM PAGAMENTO*/
+    .opcoes{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 1px;
+    }
+    /*IMAGENS DE EDITAR E APAGAR PAGAMENTO*/
+    .opcoes img{
+        width: 25px;
+        height: 30px;
+        cursor: pointer;
+    }
+    /*IMAGEM DO BUTTON DE EDITAR PAGAMENTO*/
+    .BTNeditar{
+        height: 30px;
+        width: 30px;
+    }
+    /*TABELA COM OS PAGAMENTOS REGISTRADOS*/
+    #tablePagamentos{
+        width: 100%;
+        position: relative;
+    }
+    /*GUIA PARA LOCALIZAÇÃO DE INFORMAÇÕES ("CLIENTE", "VENCIMENTO", ETC)*/
+    #tablePagamentos th{
+        background-color: rgb(61, 61, 238);
+        font-size: 16px;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+    
+    /*LISTA ONDE FICA OS PAGAMENTOS DOS CLIENTES*/
+    div#divEnvolveLista{
+        border: 1px solid #000;
+        max-height: 100vh;
+        max-width: 100%;
+        overflow-x: scroll;
+        overflow-y: auto;
+        white-space:nowrap;
+    }
+    
+    /*CADA PAGAMENTO INDIVIDUAL*/
+    #listaPagamentos tr td{
+        border: 1px solid #000;
+        text-align: center;
+        justify-content: center;
+        font-size: 15px;
+    }
+    /*DIALOG PARA MOSTRAR AS OPERAÇÕES QUE SERÃO REALIZADAS*/
+    #DialogOperacoes{
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        border: none;
+        outline: none;
+        background-color: rgba(255, 255, 255, .6);
+        justify-content: center;
+        align-items: center;
+    }
+    /*DIV FORMULÁRIO PARA ADICIONAR PAGAMENTO*/
+    #formulario{
+        position: relative;
+        display: grid;
+        padding: 5px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+    /*IMAGEM DO BUTTON PARA FECHAR O FORMULÁRIO*/
+    #btnFechar{
+        position: absolute;
+        background-color: #fff;
+        border-radius: 100%;
+        top: -3%;
+        left: 93%;
+        transform: translate(-50% -50%);
+        width: 35px;
+        cursor: pointer;
+    }
+    /*DIV COM O TITULO DO POP-UP DE ADICIONAR PAGAMENTO*/
+    #DivTitulo{
+        padding: 15px;
+    
+    }
+    /*DIV COM OS INPUTS PARA ADICIONAR PAGAMENTO*/
+    #DivInputs{
+        display: grid;
+        gap: 10px;
+        padding: 5px;
+    }
+    /*PLACEHOLDER DOS INPUTS DO FORMULÁRO*/
+    #DivInputs input::placeholder{
+        color: #a1a1a1;
+    }
+    /*INPUTS DO FORMULÁRIO PARA DICIONAR PAGAMENTO*/
+    #DivInputs input, select{
+        background: transparent;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #000;
+        text-align: center;
+        font-size: 18px;
+        height: 35px;
+        width: 100%;
+    }
+    
+    /*DIV COM O BUTTON DE ADICIONAR PAGAMENTO*/
+    #DivBtnSalvar{
+        padding: 5px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+    }
+    /*BUTTON DE ADICIONAR PAGAMENTO*/
+    #DivBtnSalvar button{
+        display: flex;
+        cursor: pointer;
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding: 5px;
+        font-size: 18px;
+        background-color: #a1a1a1;
+        align-items: center;
+        justify-content: center;
+        width: 150px;
+    }
+    /*ANIMAÇÃO DO BUTTON*/
+    #DivBtnSalvar button:hover{
+        animation: 1s animButton infinite linear;
+    }
+    /*DIALOG COM O POP-UP PARA CONFIMAÇÃO PAR APAGAR PAGAMENTO*/
+    #dialogConfirm{
+        position: fixed;
+        top: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, .6);
+        border: none;
+        outline: none;
+        justify-content: center;
+        align-items: center;
+    }
+    /*POP-UP DE CONFIRMAÇÃO PARA APAGAR PAGAMENTO*/
+    #divConfirm{
+        background-color: rgba(0, 0, 255, 0.767);
+        padding: 5px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        display: grid;
+    }
+    /*TEXTO DO POP-UP DE CONFIRMAÇÃO PARA APAGAR PAGAMENTO*/
+    #divConfirm p{
+        padding-bottom: 5px;
+    }
+    /*DIV COM OS BUTTONS DE CONFIRMAÇÃO E DE FECHAMENTO*/
+    #buttonsConfirm{
+        display: flex;
+        gap: 3px;
+    }
+    /*BUTTONS DE CONFIRMAÇÃO DE PARA FECHAR POP-UP*/
+    #divConfirm button{
+        cursor: pointer;
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding: 5px;
+        font-size: 18px;
+        background-color: #a1a1a1;
+        align-items: center;
+        justify-content: center; 
+        width: 50%;
+        outline: none;
+    }
+    /*ANIMAÇÃO DOS BUTTONS*/
+    #divConfirm button:hover{
+        animation: 1s animButton infinite linear;
+    }
+    /*DIALOG DE ESTOQUE DA EMPRESA*/
+    #dialogEstoque{
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /*DIV COM OS LABELS E INPUTS PARA ESTOQUE*/
+    #divEstoque{
+        background-color: green;
+        padding: 5px;
+        display: flex;
+    }
+    /*DIV CONTENDO SOMENTE OS LABELS PARA ESTOQUE*/
+    #divEstoque #materiais{
+        padding: 5px;
+        display: grid;
+    }
+    /*DIV CONTENDO SOMENTE OS INPUTS PARA O ESTOQUE*/
+    #divEstoque #inputs{
+        padding: 5px;
+        display: grid;
+    }
+    /*----------------------------------------------------------------RODAPE DO SITE*/
+    /*TODO O RODAPÉ DO SITE*/
+    #rodape{
+        display: grid;
+        height: 50px;
+        width: 100%;
+        background-color: #a1a1a1;
+        text-align: center;
+        align-items: end;
+    }
+
+    /*TEXTO DE FINALIZAÇÃO*/
+    #rodape p{
+        font-size: 12px;
+    }
+    
+    /*-----------------------------------------LOGOUT DO SITE---------------*/
+    #dialogSaindo{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        border: none;
+        outline: none;
+    }
+    #comprimento{
+        border: 1px solid #000;
+        border-radius: 10px;
+        margin-top: 10px;
+        background-color: #a1a1a1;
+        width: 170px;
+        height: 30px;
+        text-align: center;
+    }
+}

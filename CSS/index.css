@@ -1,0 +1,295 @@
+*{
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    background-color: #bbbbbb;
+}
+body a{
+    color: #000;
+}
+@media (min-width: 505px) and (max-width: 2000px){
+    
+    /*CONTEM O FORM COM OS INPUTS E O BUTTON*/
+#principal{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+
+/*-----ELEMENTOS DA DIV COM A LOGO, OS INPUTS E O BUTTONDE LOGIN------*/
+
+#logoInputsButton{
+    display: grid;
+    width: 250px;
+    justify-content: center;
+    position: relative;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+/*DIV CONTENDO SOMENTE A LOGO*/
+#divLogo{
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+}
+/*IMAGEM DA LOGO*/
+#divLogo img{
+    width: 150px;
+    height: 150px;
+}
+/*DIV COM OS INPUTS*/
+#divInputs{
+    display: grid;
+    align-items: center;
+    background-color: #fff;
+    width: 250px;
+    justify-content: center;
+    border: 1px solid #000;
+    border-right: none;
+    border-bottom: none;
+    border-top-left-radius: 5px;
+}
+
+/*INPUTS*/
+#logoInputsButton input{
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    outline: none;
+    width: 230px;
+    font-size: 18px;
+    padding: 2px;
+    text-align: center;
+    cursor: pointer;
+}
+/*----------------LABELS-----------------*/
+
+/*----LABEL DE USUÁRIO----*/
+#labelUsuario{
+    position: absolute;
+    top: 55%;
+    left: 40%;
+    transition: .5s;
+    cursor: pointer;
+}
+#usuario:valid ~ #labelUsuario,
+#usuario:focus ~ #labelUsuario{
+    top: 50%;
+    opacity: 0;
+}
+/*---LABEL DE SENHA----*/
+#labelSenha{
+    position: absolute;
+    top: 68.7%;
+    left: 42%;
+    transition: .5s;
+    cursor: pointer;
+}
+#senha:valid ~ #labelSenha,
+#senha:focus ~ #labelSenha{
+    top: 63.7%;
+    opacity: 0;
+}
+
+#logoInputsButton input::placeholder{
+    text-align: center;
+}
+
+/*DIV COM O BUTTON*/
+#divButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-right: none;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+
+}
+/*BUTTON DE LOGIN*/
+#logoInputsButton button{
+    background-color: #a1a1a1;
+    border: 1px solid #000;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+#logoInputsButton button:hover{
+    background-color: #6d6d6d;
+}
+
+/*---------------DIV COM A SAUDAÇÃO---------------*/
+
+#saudacao{
+    display: flex;
+    width: 250px;
+    background-color: #e7e6e6;
+    border: 1px solid #000;
+    border-radius: 5px;
+    border-bottom-left-radius: 0px;
+}
+/*MENSÁGEM DE SAUDAÇÃO*/
+#saudacao p{
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+}
+/*FINAL DO SITE*/
+p#final{
+    background-color: rebeccapurple;
+    font-size: 12px;
+}
+
+}
+
+/*-----------------APARELHOS MENORES---------------*/
+@media (min-width: 0px) and (max-width: 504px){
+    
+    /*CONTEM O FORM COM OS INPUTS E O BUTTON*/
+#principal{
+    display: grid;
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    border-radius: 5px;
+}
+
+/*-----ELEMENTOS DA DIV COM A LOGO, OS INPUTS E O BUTTONDE LOGIN------*/
+
+#logoInputsButton{
+    display: grid;
+    width: 250px;
+    justify-content: center;
+    position: relative;
+}
+/*DIV CONTENDO SOMENTE A LOGO*/
+#divLogo{
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+}
+/*IMAGEM DA LOGO*/
+#divLogo img{
+    width: 150px;
+    height: 150px;
+}
+/*DIV COM OS INPUTS*/
+#divInputs{
+    display: grid;
+    align-items: center;
+    width: 250px;
+    height: 150px;
+    background-color: #fff;
+    justify-content: center;
+    border: 1px solid #000;
+    border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+/*INPUTS*/
+#logoInputsButton input{
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    outline: none;
+    width: 230px;
+    font-size: 18px;
+    padding: 2px;
+    text-align: center;
+    cursor: pointer;
+}
+/*----------------LABELS-----------------*/
+
+/*----LABEL DE USUÁRIO----*/
+#labelUsuario{
+    position: absolute;
+    top: 52%;
+    left: 40%;
+    transition: .5s;
+    cursor: pointer;
+}
+#usuario:valid ~ #labelUsuario,
+#usuario:focus ~ #labelUsuario{
+    top: 46%;
+    opacity: 0;
+}
+/*---LABEL DE SENHA----*/
+#labelSenha{
+    position: absolute;
+    top: 72%;
+    left: 42%;
+    transition: .5s;
+    cursor: pointer;
+}
+#senha:valid ~ #labelSenha,
+#senha:focus ~ #labelSenha{
+    top: 66%;
+    opacity: 0;
+}
+
+#logoInputsButton input::placeholder{
+    text-align: center;
+}
+
+/*DIV COM O BUTTON*/
+#divButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-bottom: none;
+    border-top: none;
+}
+/*BUTTON DE LOGIN*/
+#logoInputsButton button{
+    background-color: #a1a1a1;
+    border: 1px solid #000;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+#logoInputsButton button:hover{
+    background-color: #6d6d6d;
+}
+
+/*---------------DIV COM A SAUDAÇÃO---------------*/
+
+#saudacao{
+    display: flex;
+    width: 250px;
+    background-color: #e7e6e6;
+    border: 1px solid #000;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+/*MENSÁGEM DE SAUDAÇÃO*/
+#saudacao p{
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+}
+/*FINAL DO SITE*/
+p#final{
+    background-color: rebeccapurple;
+    font-size: 12px;
+}
+
+}
