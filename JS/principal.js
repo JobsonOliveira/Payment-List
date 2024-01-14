@@ -301,14 +301,6 @@ document.querySelector("#imgSair").addEventListener("click", () => {
 		window.open("../PHP/logout.php","_self");
 	}, 1000);
 });
-
-//BUTTON PARA ABRIR A ABA DE ESTOQUE DA EMPRSA
-/*document.querySelector("#btnEstoque").addEventListener("click", () =>{
-	document.querySelector("#dialogEstoque").show();
-});*/
-
-//function modificador(valor){
-	//alert(valor);
 document.querySelector("#forma").addEventListener("click", ()=>{
 	 
  
@@ -323,4 +315,16 @@ document.querySelector("#forma").addEventListener("click", ()=>{
 		document.querySelector("#funcionario").removeAttribute("disabled");
 	}
 });
-//};
+
+//BUTTON PARA ABRIR O ESTOQUE
+document.querySelector("#btnEstoque").addEventListener("click", () =>{
+	document.querySelector("#dialogEstoque").style.display = "flex";
+	document.querySelector("#tablePagamentos tr").style.opacity = ".5";
+});
+
+//FECHAR O ESTOQUE
+document.querySelector("#fecharEstoque").addEventListener("click", () =>{
+	document.querySelector("#dialogEstoque").style.removeProperty('display');
+	document.querySelector("#tablePagamentos tr").style.opacity = "1";
+
+});

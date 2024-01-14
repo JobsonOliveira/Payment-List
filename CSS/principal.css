@@ -130,13 +130,14 @@ div.divCheckbox{
     justify-content: end;
     height: 100%;
     padding: 1px;
+    gap: 10px;
 }
 /*IMAGEM DO BUTTON DE ADICIONAR NOVO PAGAMENTO*/
-#AddPag{
+#divBtnAddPag button img{
     width: 40px;
 }
 /*BUTTON PARA NOVO PAGAMENTO*/
-button#BTNAddPag{
+#divBtnAddPag button{
     display: flex;
     cursor: pointer;
     border: none;
@@ -347,32 +348,88 @@ div#divEnvolveLista{
 #divConfirm button:hover{
     animation: 1s animButton infinite linear;
 }
-/*DIALOG DE ESTOQUE DA EMPRESA*/
+
+/*DIALOG DE ESTOQUE*/
 #dialogEstoque{
     width: 100%;
     height: 100%;
-    border: none;
-    outline: none;
-    display: flex;
+    background-color: rgba(255, 255, 255, .6);
     justify-content: center;
     align-items: center;
-}
-/*DIV COM OS LABELS E INPUTS PARA ESTOQUE*/
-#divEstoque{
-    background-color: green;
-    padding: 5px;
+    outline: none;
+    border: none;
+
+    /*remover*/
     display: flex;
 }
-/*DIV CONTENDO SOMENTE OS LABELS PARA ESTOQUE*/
-#divEstoque #materiais{
-    padding: 5px;
+
+/*DIV COM O TITULO E OS ITENS DO ESTOQUE*/
+#divEstoque {
+    background-color: red;
     display: grid;
+    padding: 3px;
 }
-/*DIV CONTENDO SOMENTE OS INPUTS PARA O ESTOQUE*/
-#divEstoque #inputs{
-    padding: 5px;
+
+/*TITULO DO ESTOQUE*/
+#divEstoque h1{
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+#divEstoque h1 img{
+    position: absolute;
+    top: 0%;
+    left: 90%;
+    transform: translate(-50% -50%);
+    width: 35px;
+    cursor: pointer;
+}
+/*DIV COM OS INPUTS DO ESTOQUE*/
+#divInputsEstoque{
+    background-color: green;
     display: grid;
+    grid-template-columns: .5fr 1fr .5fr 1fr;
+    padding: 10px;
+    gap: 5px;
+    justify-content: center;
 }
+/*INPUTS DO ESTOQUE*/
+#divInputsEstoque input{
+    width: 55px;
+    font-size: 18px;
+    border: 1px solid #000;
+    outline: none;
+    text-align: center;
+}
+/*DIV ONDE FICA OS BUTTONS DO ESTOQUE*/
+#divBtnEstoque{
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+    gap: 10px;
+}
+
+/*BUTTONS DO ESTOQUE*/
+#divBtnEstoque button{
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    background-color: #a1a1a1;
+    align-items: center;
+    justify-content: center; 
+    width: 100px;
+    outline: none;
+}
+/*ANIMAÇÃO DOS BUTTONS*/
+#divBtnEstoque button:hover{
+    animation: 1s animButton infinite linear;
+}
+
+
 /*----------------------------------------------------------------RODAPE DO SITE*/
 /*TODO O RODAPÉ DO SITE*/
 #rodape{
@@ -515,11 +572,11 @@ div.divCheckbox{
     padding: 1px;
 }
 /*IMAGEM DO BUTTON DE ADICIONAR NOVO PAGAMENTO*/
-#AddPag{
+#divBtnAddPag button img{
     width: 40px;
 }
 /*BUTTON PARA NOVO PAGAMENTO*/
-button#BTNAddPag{
+#divBtnAddPag button{
     display: flex;
     cursor: pointer;
     border: none;
@@ -736,32 +793,6 @@ div#divEnvolveLista{
 #divConfirm button:hover{
     animation: 1s animButton infinite linear;
 }
-/*DIALOG DE ESTOQUE DA EMPRESA*/
-#dialogEstoque{
-    width: 100%;
-    height: 100%;
-    border: none;
-    outline: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/*DIV COM OS LABELS E INPUTS PARA ESTOQUE*/
-#divEstoque{
-    background-color: green;
-    padding: 5px;
-    display: flex;
-}
-/*DIV CONTENDO SOMENTE OS LABELS PARA ESTOQUE*/
-#divEstoque #materiais{
-    padding: 5px;
-    display: grid;
-}
-/*DIV CONTENDO SOMENTE OS INPUTS PARA O ESTOQUE*/
-#divEstoque #inputs{
-    padding: 5px;
-    display: grid;
-}
 /*----------------------------------------------------------------RODAPE DO SITE*/
 /*TODO O RODAPÉ DO SITE*/
 #rodape{
@@ -911,11 +942,11 @@ div#divEnvolveLista{
         padding: 1px;
     }
     /*IMAGEM DO BUTTON DE ADICIONAR NOVO PAGAMENTO*/
-    #AddPag{
+    #divBtnAddPag button img{
         width: 40px;
     }
     /*BUTTON PARA NOVO PAGAMENTO*/
-    button#BTNAddPag{
+    #divBtnAddPag button{
         display: flex;
         cursor: pointer;
         border: none;
@@ -1132,32 +1163,6 @@ div#divEnvolveLista{
     /*ANIMAÇÃO DOS BUTTONS*/
     #divConfirm button:hover{
         animation: 1s animButton infinite linear;
-    }
-    /*DIALOG DE ESTOQUE DA EMPRESA*/
-    #dialogEstoque{
-        width: 100%;
-        height: 100%;
-        border: none;
-        outline: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    /*DIV COM OS LABELS E INPUTS PARA ESTOQUE*/
-    #divEstoque{
-        background-color: green;
-        padding: 5px;
-        display: flex;
-    }
-    /*DIV CONTENDO SOMENTE OS LABELS PARA ESTOQUE*/
-    #divEstoque #materiais{
-        padding: 5px;
-        display: grid;
-    }
-    /*DIV CONTENDO SOMENTE OS INPUTS PARA O ESTOQUE*/
-    #divEstoque #inputs{
-        padding: 5px;
-        display: grid;
     }
     /*----------------------------------------------------------------RODAPE DO SITE*/
     /*TODO O RODAPÉ DO SITE*/
